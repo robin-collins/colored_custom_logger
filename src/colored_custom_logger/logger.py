@@ -4,7 +4,7 @@ logger.py - A module for setting up consistent, partially colorful logging acros
 This module provides a CustomLogger class that can be used directly for logging with colorful date
 and log level, while leaving the rest of the output in plain text.
 
-Version: 1.5.2
+Version: 1.5.3
 """
 
 import logging
@@ -37,7 +37,7 @@ class ColoredFormatter(logging.Formatter):
         "INFO": Fore.GREEN,
         "WARNING": Fore.YELLOW,
         "ERROR": Fore.RED,
-        "CRITICAL": Fore.RED + Style.BRIGHT,
+        "CRITICAL": Fore.LIGHTRED_EX,
     }
 
     def __init__(self, fmt=None, datefmt=None, style="%"):

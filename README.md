@@ -20,8 +20,6 @@ Feast your eyes on these beautiful logs:
 
 ![Colored Logger Demo](docs/images/showcase_example.png)
 
-*Note: Replace this with an actual screenshot of your logger in action*
-
 ## 🚀 Installation
 
 Get started with a simple pip install:
@@ -50,7 +48,7 @@ logger.critical("🚨 MAYDAY! MAYDAY! This is critical!")
 
 And voilà! Your console will transform into this:
 
-![Logger Output](docs/images/basic_usage.png)
+![Logger Output](docs/images/quickstart.png)
 
 ## Documentation
 
@@ -85,8 +83,6 @@ Our carefully curated color palette ensures your logs are both beautiful and rea
 Want to customize your logger further? No problem! Check out our advanced usage guide:
 
 ![Advanced Usage](docs/images/advanced_usage.png)
-
-*Note: Replace this with an image showcasing advanced usage examples*
 
 ## 🤝 Contributing
 

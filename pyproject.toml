@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "colored_custom_logger"
-version = "1.5.2"
+version = "1.5.3"
 authors = [
   { name = "Robin Collins", email = "robin@blackcat-it.com.au" },
 ]
