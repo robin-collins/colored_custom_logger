@@ -83,21 +83,30 @@ git push origin main
 ## Step 7: Set up GitHub Pages
 
 1. In your GitHub repository, go to Settings > Pages.
-2. Under "Source", select the branch you want to use for GitHub Pages (usually `main` or `master`).
-3. Select the `/docs` folder as the source.
+2. Under "Source", select the branch `gh-pages` (create this branch if it doesn't exist)
+3. Set the folder to `/ (root)`
 4. Click Save.
 
 ## Step 8: Build and deploy your documentation
 
-1. In your local project directory, run:
+**Build your MkDocs site**:
+   - Open your terminal
+   - Navigate to your project directory
+   - Run the following command:
+     ```
+     mkdocs build
+     ```
+   - This will create a `site` directory with your built documentation
 
-```bash
-mkdocs gh-deploy
-```
 
-This command builds your documentation and pushes it to a new branch called `gh-pages`.
+**Deploy to GitHub Pages**:
+   - Still in your project directory, run:
+     ```
+     mkdocs gh-deploy
+     ```
+   - This command builds your docs and pushes them to the `gh-pages` branch
 
-2. Your documentation should now be available at `https://robin-collins.github.io/colored_custom_logger/`.
+1. Your documentation should now be available at `https://robin-collins.github.io/colored_custom_logger/`.
 
 ## Updating your documentation
 
