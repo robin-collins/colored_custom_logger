@@ -30,7 +30,7 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/robin-collins/colored_custom_logger"
 "Bug Tracker" = "https://github.com/robin-collins/colored_custom_logger/issues"
-"Documentation" = "https://github.com/robin-collins/colored_custom_logger#readme"
+"Documentation" = "https://robin-collins.github.io/colored_custom_logger/"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/colored_custom_logger"]

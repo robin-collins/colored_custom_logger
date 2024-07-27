@@ -52,7 +52,23 @@ And voilà! Your console will transform into this:
 
 ![Logger Output](docs/images/basic_usage.png)
 
-*Note: Replace this with an actual screenshot of your logger output*
+## Documentation
+
+Comprehensive documentation for Colored Custom Logger is available online:
+
+- **User Guide and API Reference**: [https://robin-collins.github.io/colored_custom_logger/](https://robin-collins.github.io/colored_custom_logger/)
+
+This documentation includes:
+- Installation instructions
+- Usage examples
+- API reference
+- Troubleshooting guide
+
+For developers interested in contributing to the project or setting up the documentation locally:
+
+- **Documentation Setup Guide**: See [DOCUMENTATION_SETUP.md](DOCUMENTATION_SETUP.md) in the project repository.
+
+The documentation is built using MkDocs and hosted on GitHub Pages. It is automatically updated when changes are pushed to the main branch of the repository.
 
 ## 🌈 Color Scheme
 

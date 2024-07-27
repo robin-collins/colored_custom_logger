@@ -97,7 +97,7 @@ mkdocs gh-deploy
 
 This command builds your documentation and pushes it to a new branch called `gh-pages`.
 
-2. Your documentation should now be available at `https://yourusername.github.io/colored_custom_logger/`.
+2. Your documentation should now be available at `https://robin-collins.github.io/colored_custom_logger/`.
 
 ## Updating your documentation
 
