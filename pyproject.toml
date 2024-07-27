@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "colored_custom_logger"
+version = "1.5.2"
+authors = [
+  { name = "Robin Collins", email = "robin@blackcat-it.com.au" },
+]
+description = "A custom logger with colorful output"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: System :: Logging",
+]
+dependencies = [
+    "colorama",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/robin-collins/colored_custom_logger"
+"Bug Tracker" = "https://github.com/robin-collins/colored_custom_logger/issues"
+"Documentation" = "https://github.com/robin-collins/colored_custom_logger#readme"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/colored_custom_logger"]
+
+[tool.pylint.master]
+init-hook='import sys; sys.path.append("src")'
+
+[tool.pylint.messages_control]
+disable = [
+    "C0111",  # missing-docstring
+]
+
+[tool.pylint.format]
+max-line-length = "100"

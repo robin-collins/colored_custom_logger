@@ -1,0 +1,100 @@
+import logging
+import unittest
+from io import StringIO
+
+from colorama import Fore, Style
+from colored_custom_logger.logger import ColoredFormatter, CustomLogger
+
+
+class TestColoredCustomLogger(unittest.TestCase):
+    def setUp(self):
+        self.logger = CustomLogger.get_logger("test_logger")
+        self.log_capture = StringIO()
+        self.handler = logging.StreamHandler(self.log_capture)
+        self.logger.addHandler(self.handler)
+
+    def tearDown(self):
+        self.logger.removeHandler(self.handler)
+        self.log_capture.close()
+
+    def test_logger_levels(self):
+        test_messages = {
+            "debug": "Debug message",
+            "info": "Info message",
+            "warning": "Warning message",
+            "error": "Error message",
+            "critical": "Critical message",
+        }
+
+        for level, message in test_messages.items():
+            getattr(self.logger, level)(message)
+
+        log_output = self.log_capture.getvalue()
+
+        for level, message in test_messages.items():
+            self.assertIn(message, log_output)
+            self.assertIn(level.upper(), log_output)
+
+    def test_colored_output(self):
+        self.logger.info("Test colored output")
+        log_output = self.log_capture.getvalue()
+
+        self.assertIn(Fore.GREEN, log_output)
+        self.assertIn(Style.RESET_ALL, log_output)
+
+    def test_custom_formatter(self):
+        formatter = ColoredFormatter(
+            "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
+        )
+        formatted_record = formatter.format(
+            logging.LogRecord(
+                name="test_logger",
+                level=logging.INFO,
+                pathname="",
+                lineno=0,
+                msg="Test message",
+                args=(),
+                exc_info=None,
+            )
+        )
+
+        self.assertIn(Fore.GREEN, formatted_record)
+        self.assertIn(Style.RESET_ALL, formatted_record)
+        self.assertIn("INFO", formatted_record)
+        self.assertIn("test_logger", formatted_record)
+        self.assertIn("Test message", formatted_record)
+
+    def test_logger_name(self):
+        self.assertEqual(self.logger.name, "test_logger")
+
+    def test_logger_level(self):
+        self.assertEqual(self.logger.level, logging.INFO)
+
+    def test_custom_level(self):
+        custom_level_logger = CustomLogger.get_logger(
+            "custom_level_logger", level=logging.DEBUG
+        )
+        self.assertEqual(custom_level_logger.level, logging.DEBUG)
+
+    def test_no_propagate(self):
+        self.assertFalse(self.logger.propagate)
+
+    def test_formatter_style(self):
+        formatter = ColoredFormatter(
+            "%(asctime)s - %(levelname)s - %(name)s - %(message)s", style="%"
+        )
+        self.assertEqual(formatter._style.__class__, logging.PercentStyle)
+
+        formatter = ColoredFormatter(
+            "{asctime} - {levelname} - {name} - {message}", style="{"
+        )
+        self.assertEqual(formatter._style.__class__, logging.StrFormatStyle)
+
+        formatter = ColoredFormatter(
+            "$asctime - $levelname - $name - $message", style="$"
+        )
+        self.assertEqual(formatter._style.__class__, logging.StringTemplateStyle)
+
+
+if __name__ == "__main__":
+    unittest.main()
