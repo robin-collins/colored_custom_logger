@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>API Reference - Colored Custom Logger</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API Reference";
+        var mkdocs_page_input_path = "api.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Colored Custom Logger
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">API Reference</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#customlogger">CustomLogger</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#class-definition">Class Definition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-methods">Class Methods</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#get_logger">get_logger</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#instance-methods">Instance Methods</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#setup_logger">setup_logger</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#standard-logging-methods">Standard Logging Methods</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#coloredformatter">ColoredFormatter</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#class-definition_1">Class Definition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-attributes">Class Attributes</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#colors">COLORS</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#instance-methods_1">Instance Methods</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#format">format</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#utility-functions">Utility Functions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#init_logger">init_logger</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#log-levels">Log Levels</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#thread-safety">Thread Safety</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#performance-considerations">Performance Considerations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#extending-the-module">Extending the Module</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Colored Custom Logger</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api-reference">API Reference</h1>
+<p>This document provides a detailed reference for all public classes, methods, and attributes in the <code>colored_custom_logger</code> module.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#customlogger">CustomLogger</a></li>
+<li><a href="#coloredformatter">ColoredFormatter</a></li>
+<li><a href="#utility-functions">Utility Functions</a></li>
+</ol>
+<h2 id="customlogger">CustomLogger</h2>
+<p><code>CustomLogger</code> is the main class you'll interact with. It's a subclass of <code>logging.Logger</code> that uses a <code>ColoredFormatter</code> by default.</p>
+<h3 id="class-definition">Class Definition</h3>
+<pre><code class="language-python">class CustomLogger(logging.Logger):
+    def __init__(self, name: str, level: int = logging.DEBUG)
+</code></pre>
+<h3 id="class-methods">Class Methods</h3>
+<h4 id="get_logger"><code>get_logger</code></h4>
+<pre><code class="language-python">@classmethod
+def get_logger(cls, name: str, level: int = logging.DEBUG) -&gt; CustomLogger
+</code></pre>
+<p>Creates and returns a <code>CustomLogger</code> instance.</p>
+<p><strong>Parameters:</strong>
+- <code>name</code> (str): The name of the logger.
+- <code>level</code> (int, optional): The logging level. Defaults to <code>logging.DEBUG</code>.</p>
+<p><strong>Returns:</strong>
+- <code>CustomLogger</code>: An instance of the CustomLogger.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">logger = CustomLogger.get_logger(&quot;my_app&quot;)
+</code></pre>
+<h3 id="instance-methods">Instance Methods</h3>
+<h4 id="setup_logger"><code>setup_logger</code></h4>
+<pre><code class="language-python">def setup_logger(self) -&gt; None
+</code></pre>
+<p>Sets up the logger with a <code>ColoredFormatter</code> and console handler.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">logger = CustomLogger(&quot;my_app&quot;)
+logger.setup_logger()
+</code></pre>
+<h4 id="standard-logging-methods">Standard Logging Methods</h4>
+<p>The <code>CustomLogger</code> class inherits all standard logging methods from <code>logging.Logger</code>. These include:</p>
+<ul>
+<li><code>debug(msg, *args, **kwargs)</code></li>
+<li><code>info(msg, *args, **kwargs)</code></li>
+<li><code>warning(msg, *args, **kwargs)</code></li>
+<li><code>error(msg, *args, **kwargs)</code></li>
+<li><code>critical(msg, *args, **kwargs)</code></li>
+<li><code>exception(msg, *args, exc_info=True, **kwargs)</code></li>
+</ul>
+<p>Each of these methods logs a message with the corresponding severity level.</p>
+<p><strong>Parameters:</strong>
+- <code>msg</code> (str): The message to log.
+- <code>*args</code>: Variable positional arguments to be merged into <code>msg</code>.
+- <code>**kwargs</code>: Keyword arguments. These can include <code>exc_info</code> (a boolean, exception, or tuple) and <code>stack_info</code> (a boolean).</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">logger.debug(&quot;Debug message&quot;)
+logger.info(&quot;Info message with %s&quot;, &quot;formatting&quot;)
+logger.warning(&quot;Warning message&quot;)
+logger.error(&quot;Error message&quot;)
+logger.critical(&quot;Critical message&quot;)
+logger.exception(&quot;Exception message&quot;, exc_info=True)
+</code></pre>
+<h2 id="coloredformatter">ColoredFormatter</h2>
+<p><code>ColoredFormatter</code> is a custom formatter that applies colors to log messages based on their level.</p>
+<h3 id="class-definition_1">Class Definition</h3>
+<pre><code class="language-python">class ColoredFormatter(logging.Formatter):
+    def __init__(self, fmt: Optional[str] = None, datefmt: Optional[str] = None, style: str = '%')
+</code></pre>
+<h3 id="class-attributes">Class Attributes</h3>
+<h4 id="colors"><code>COLORS</code></h4>
+<p>A dictionary mapping log levels to color codes.</p>
+<pre><code class="language-python">COLORS = {
+    &quot;DEBUG&quot;: Fore.BLUE,
+    &quot;INFO&quot;: Fore.GREEN,
+    &quot;WARNING&quot;: Fore.YELLOW,
+    &quot;ERROR&quot;: Fore.RED,
+    &quot;CRITICAL&quot;: Fore.RED + Style.BRIGHT,
+}
+</code></pre>
+<h3 id="instance-methods_1">Instance Methods</h3>
+<h4 id="format"><code>format</code></h4>
+<pre><code class="language-python">def format(self, record: logging.LogRecord) -&gt; str
+</code></pre>
+<p>Formats the log record with appropriate colors.</p>
+<p><strong>Parameters:</strong>
+- <code>record</code> (logging.LogRecord): The log record to format.</p>
+<p><strong>Returns:</strong>
+- <code>str</code>: The formatted log message with color codes.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">formatter = ColoredFormatter(&quot;%(asctime)s - %(levelname)s - %(message)s&quot;)
+formatted_message = formatter.format(log_record)
+</code></pre>
+<h2 id="utility-functions">Utility Functions</h2>
+<h3 id="init_logger"><code>init_logger</code></h3>
+<pre><code class="language-python">def init_logger(name: str, level: int = logging.DEBUG) -&gt; CustomLogger
+</code></pre>
+<p>A convenience function to initialize and return a <code>CustomLogger</code>.</p>
+<p><strong>Parameters:</strong>
+- <code>name</code> (str): The name of the logger.
+- <code>level</code> (int, optional): The logging level. Defaults to <code>logging.DEBUG</code>.</p>
+<p><strong>Returns:</strong>
+- <code>CustomLogger</code>: An initialized CustomLogger instance.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">logger = init_logger(&quot;my_app&quot;, level=logging.INFO)
+</code></pre>
+<h2 id="constants">Constants</h2>
+<h3 id="log-levels">Log Levels</h3>
+<p>The module uses standard Python logging levels:</p>
+<ul>
+<li><code>DEBUG = 10</code></li>
+<li><code>INFO = 20</code></li>
+<li><code>WARNING = 30</code></li>
+<li><code>ERROR = 40</code></li>
+<li><code>CRITICAL = 50</code></li>
+</ul>
+<p>These can be imported from the <code>logging</code> module or accessed via <code>logging.DEBUG</code>, <code>logging.INFO</code>, etc.</p>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li>Use meaningful logger names, typically <code>__name__</code> or the name of the component.</li>
+<li>Set appropriate log levels for different environments (e.g., DEBUG for development, INFO for production).</li>
+<li>Use log messages to provide context, not just to state what code is executing.</li>
+<li>When adding custom colors to messages, always reset the color afterwards using <code>Style.RESET_ALL</code>.</li>
+</ol>
+<h2 id="thread-safety">Thread Safety</h2>
+<p>The <code>CustomLogger</code> and <code>ColoredFormatter</code> classes are thread-safe, inheriting this property from the standard <code>logging</code> module. However, be cautious when modifying global state (like changing log levels) in a multi-threaded environment.</p>
+<h2 id="performance-considerations">Performance Considerations</h2>
+<p>Logging can impact performance, especially at DEBUG level. In production environments, consider setting the log level to INFO or higher for optimal performance.</p>
+<h2 id="extending-the-module">Extending the Module</h2>
+<p>To extend the functionality of <code>colored_custom_logger</code>:</p>
+<ol>
+<li>Subclass <code>CustomLogger</code> or <code>ColoredFormatter</code> to add new features.</li>
+<li>Create custom handlers if you need special output behavior.</li>
+<li>Modify the <code>COLORS</code> dictionary in <code>ColoredFormatter</code> to change default colors.</li>
+</ol>
+<p>Remember to maintain backwards compatibility if you're extending the public API.</p>
+<hr />
+<p>This API reference provides a comprehensive overview of the <code>colored_custom_logger</code> module. For usage examples and more context, please refer to the <a href="../usage/">Usage Guide</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../usage/" class="btn btn-neutral float-left" title="Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../usage/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
