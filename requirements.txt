@@ -5,7 +5,7 @@ cffi==1.15.1
 charset-normalizer==3.3.2
 click==8.1.7
 colorama==0.4.6
--e git+https://github.com/robin-collins/colored_custom_logger.git@ce9e058451ed72a3f68c6d4d1d55d84485565e24#egg=colored_custom_logger
+-e git+https://github.com/robin-collins/colored_custom_logger.git@bb2a8f835758dcc8d93ca8e9a74d444a4358e427#egg=colored_custom_logger
 cryptography==43.0.0
 docutils==0.20.1
 exceptiongroup==1.2.2
@@ -45,6 +45,7 @@ rich==13.7.1
 ruff==0.5.5
 SecretStorage==3.3.3
 six==1.16.0
+toml==0.10.2
 tomli==2.0.1
 twine==4.0.2
 typing_extensions==4.7.1

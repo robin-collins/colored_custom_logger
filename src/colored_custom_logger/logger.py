@@ -4,7 +4,7 @@ logger.py - A module for setting up consistent, partially colorful logging acros
 This module provides a CustomLogger class that can be used directly for logging with colorful date
 and log level, while leaving the rest of the output in plain text.
 
-Version: 1.5.3
+Version: 1.5.4
 """
 
 import logging
