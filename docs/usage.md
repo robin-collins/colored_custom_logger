@@ -12,7 +12,6 @@ This guide provides comprehensive examples of how to use the `colored_custom_log
   - [Multiple Loggers](#multiple-loggers)
   - [Logging to Files](#logging-to-files)
   - [Advanced Formatting](#advanced-formatting)
-  - [Context Managers](#context-managers)
   - [Integration with Existing Projects](#integration-with-existing-projects)
 
 ## Basic Usage
@@ -43,7 +42,7 @@ logger.critical("This is a critical message")
 
 Here's how the output might look:
 
-[SCREENSHOT_PLACEHOLDER: basic_usage.png]
+[![basic_usage.png](./images/basic_usage.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/basic_usage.py)
 
 ## Customizing Log Levels
 
@@ -67,7 +66,9 @@ logger.setLevel(logging.DEBUG)
 logger.debug("Now this debug message will be displayed")
 ```
 
-[SCREENSHOT_PLACEHOLDER: custom_log_levels.png]
+
+
+[![custom_log_levels.png](./images/customizing_log_levels.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/customizing_log_levels.py)
 
 ## Using Custom Colors
 
@@ -84,7 +85,7 @@ logger.warning(f"This is a {Fore.MAGENTA}magenta warning{Style.RESET_ALL}")
 logger.error(f"Error! {Back.WHITE}{Fore.RED}Something went wrong!{Style.RESET_ALL}")
 ```
 
-[SCREENSHOT_PLACEHOLDER: custom_colors.png]
+[![custom_colors.png](./images/custom_color_example.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/ss_custom_color_example.py)
 
 ## Multiple Loggers
 
@@ -100,7 +101,7 @@ db_logger.debug("Connecting to database")
 api_logger.warning("API rate limit approaching")
 ```
 
-[SCREENSHOT_PLACEHOLDER: multiple_loggers.png]
+[![multiple_loggers.png](./images/ss_multiple_loggers_example.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/ss_multiple_loggers_example.py)
 
 ## Logging to Files
 
@@ -127,7 +128,7 @@ logger.debug("This message will go to both console and file")
 logger.info("So will this info message")
 ```
 
-[SCREENSHOT_PLACEHOLDER: file_logging.png]
+[![file_logging.png](./images/logging_to_files.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/logging_to_files.py)
 
 ## Advanced Formatting
 
@@ -152,37 +153,7 @@ logger.info("This message uses the custom format")
 logger.warning("So does this warning message")
 ```
 
-[SCREENSHOT_PLACEHOLDER: advanced_formatting.png]
-
-## Context Managers
-
-You can use context managers to temporarily change logging behavior:
-
-```python
-from colored_custom_logger import CustomLogger
-import logging
-from contextlib import contextmanager
-
-logger = CustomLogger.get_logger(__name__, level=logging.INFO)
-
-@contextmanager
-def temporary_loglevel(temp_level):
-    original_level = logger.level
-    logger.setLevel(temp_level)
-    try:
-        yield
-    finally:
-        logger.setLevel(original_level)
-
-logger.debug("This debug message won't appear")
-
-with temporary_loglevel(logging.DEBUG):
-    logger.debug("This debug message will appear")
-
-logger.debug("This debug message won't appear again")
-```
-
-[SCREENSHOT_PLACEHOLDER: context_managers.png]
+[![advanced_formatting.png](./images/advanced_formatting.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/advanced_formatting.py)
 
 ## Integration with Existing Projects
 
@@ -213,7 +184,7 @@ custom_logger = CustomLogger.get_logger("custom_module")
 custom_logger.warning("This warning uses CustomLogger directly")
 ```
 
-[SCREENSHOT_PLACEHOLDER: integration.png]
+[![integration.png](./images/integration_with_existing_projects.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/integration_with_existing_projects.py)
 
 By following these examples, you should be able to make full use of the `colored_custom_logger` in your Python projects. Remember to adjust the log levels and formats to best suit your specific needs.
 

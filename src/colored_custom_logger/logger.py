@@ -8,6 +8,7 @@ Version: 1.5.3
 """
 
 import logging
+import sys
 
 from colorama import Fore, Style, init
 
@@ -139,7 +140,7 @@ class CustomLogger(logging.Logger):
             self.removeHandler(handler)
 
         # Create console handler and set level to debug
-        console_handler = logging.StreamHandler()
+        console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setLevel(logging.DEBUG)
 
         # Create formatter
