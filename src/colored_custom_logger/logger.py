@@ -106,7 +106,13 @@ class ColoredFormatter(logging.Formatter):
 
 
 class CustomLogger(logging.Logger):
-    _default_level = logging.DEBUG
+    """
+    A custom logger class that extends the standard logging.Logger.
+
+    This logger is configured with a colored formatter and console handler.
+    """
+
+    _default_level = logging.INFO  # Add this line at the beginning of the class
 
     def __init__(self, name: str, level: int = None):
         """
