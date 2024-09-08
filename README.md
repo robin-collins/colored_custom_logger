@@ -86,11 +86,11 @@ Want to customize your logger further? No problem! Check out our advanced usage 
 
 ## 🤝 Contributing
 
-We love contributions! If you have ideas for new features, improvements, or just want to report a bug, please open an issue or submit a pull request. Let's make logging colorful for everyone! 🌈
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgements
 

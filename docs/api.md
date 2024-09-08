@@ -2,6 +2,8 @@
 
 This document provides a detailed reference for all public classes, methods, and attributes in the `colored_custom_logger` module.
 
+Version: 1.5.5
+
 ## Table of Contents
 
 1. [CustomLogger](#customlogger)
@@ -16,7 +18,9 @@ This document provides a detailed reference for all public classes, methods, and
 
 ```python
 class CustomLogger(logging.Logger):
-    def __init__(self, name: str, level: int = logging.DEBUG)
+    _default_level = logging.DEBUG
+
+    def __init__(self, name: str, level: int = None)
 ```
 
 ### Class Methods
@@ -25,14 +29,14 @@ class CustomLogger(logging.Logger):
 
 ```python
 @classmethod
-def get_logger(cls, name: str, level: int = logging.DEBUG) -> CustomLogger
+def get_logger(cls, name: str, level: int = None) -> CustomLogger
 ```
 
 Creates and returns a `CustomLogger` instance.
 
 **Parameters:**
 - `name` (str): The name of the logger.
-- `level` (int, optional): The logging level. Defaults to `logging.DEBUG`.
+- `level` (int, optional): The logging level. If None, uses the default level.
 
 **Returns:**
 - `CustomLogger`: An instance of the CustomLogger.
@@ -40,6 +44,23 @@ Creates and returns a `CustomLogger` instance.
 **Example:**
 ```python
 logger = CustomLogger.get_logger("my_app")
+```
+
+#### `set_default_level`
+
+```python
+@classmethod
+def set_default_level(cls, level: int) -> None
+```
+
+Sets the default logging level for all CustomLogger instances.
+
+**Parameters:**
+- `level` (int): The logging level to set as default.
+
+**Example:**
+```python
+CustomLogger.set_default_level(logging.INFO)
 ```
 
 ### Instance Methods
@@ -140,14 +161,14 @@ formatted_message = formatter.format(log_record)
 ### `init_logger`
 
 ```python
-def init_logger(name: str, level: int = logging.DEBUG) -> CustomLogger
+def init_logger(name: str, level: int = None) -> CustomLogger
 ```
 
 A convenience function to initialize and return a `CustomLogger`.
 
 **Parameters:**
 - `name` (str): The name of the logger.
-- `level` (int, optional): The logging level. Defaults to `logging.DEBUG`.
+- `level` (int, optional): The logging level. If None, uses the default level set by `set_default_level`.
 
 **Returns:**
 - `CustomLogger`: An initialized CustomLogger instance.

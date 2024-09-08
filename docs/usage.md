@@ -66,9 +66,28 @@ logger.setLevel(logging.DEBUG)
 logger.debug("Now this debug message will be displayed")
 ```
 
+## Setting Default Log Level
 
+You can set a default log level for all CustomLogger instances:
 
-[![custom_log_levels.png](./images/customizing_log_levels.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/customizing_log_levels.py)
+```python
+import logging
+from colored_custom_logger import CustomLogger
+
+CustomLogger.set_default_level(logging.INFO)
+
+# This logger will have INFO level by default
+logger1 = CustomLogger.get_logger("logger1")
+
+# This logger will override the default and use DEBUG level
+logger2 = CustomLogger.get_logger("logger2", logging.DEBUG)
+
+logger1.debug("This debug message won't be displayed")
+logger1.info("This info message will be displayed")
+logger2.debug("This debug message will be displayed")
+```
+
+This feature allows you to easily manage the log level across your entire application.
 
 ## Using Custom Colors
 
