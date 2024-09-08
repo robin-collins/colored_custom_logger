@@ -2,7 +2,7 @@
 
 This document provides a detailed reference for all public classes, methods, and attributes in the `colored_custom_logger` module.
 
-Version: 1.5.5
+Version: 1.5.7
 
 ## Table of Contents
 
@@ -15,7 +15,6 @@ Version: 1.5.5
 `CustomLogger` is the main class you'll interact with. It's a subclass of `logging.Logger` that uses a `ColoredFormatter` by default.
 
 ### Class Definition
-
 ```python
 class CustomLogger(logging.Logger):
     _default_level = logging.DEBUG

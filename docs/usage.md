@@ -14,6 +14,14 @@ This guide provides comprehensive examples of how to use the `colored_custom_log
   - [Advanced Formatting](#advanced-formatting)
   - [Integration with Existing Projects](#integration-with-existing-projects)
 
+## Installation
+
+Install the package using pip:
+
+```bash
+pip install colored-custom-logger
+```
+
 ## Basic Usage
 
 To get started with `colored_custom_logger`, follow these simple steps:

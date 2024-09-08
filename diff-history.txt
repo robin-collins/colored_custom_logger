@@ -1,0 +1,2905 @@
+Changes in commit 8b22842a3cf47140aaafe2deaf687a402754353c (2024-07-27T15:07:40+09:30):
+
+Changes in commit 0ba3a9dcbe9816570dc813f8346036e0de0a68ff (2024-07-27T17:50:21+09:30):
+diff --git a/DOCUMENTATION_SETUP.md b/DOCUMENTATION_SETUP.md
+new file mode 100644
+index 0000000..ce36eb9
+--- /dev/null
++++ b/DOCUMENTATION_SETUP.md
+@@ -0,0 +1,110 @@
++# Setting up MkDocs with GitHub Pages for colored_custom_logger
++
++This guide will walk you through the process of setting up MkDocs for your colored_custom_logger project and hosting it on GitHub Pages.
++
++## Prerequisites
++
++- Python 3.x installed
++- Git installed
++- A GitHub account
++- Your project repository on GitHub
++
++## Step 1: Install MkDocs
++
++1. Open a terminal or command prompt.
++2. Install MkDocs using pip:
++
++```bash
++pip install mkdocs
++```
++
++## Step 2: Set up MkDocs in your project
++
++1. Navigate to your project's root directory:
++
++```bash
++cd path/to/colored_custom_logger
++```
++
++2. Initialize MkDocs in your project:
++
++```bash
++mkdocs new .
++```
++
++This creates a new `mkdocs.yml` file and a `docs` directory.
++
++## Step 3: Configure MkDocs
++
++1. Open `mkdocs.yml` in a text editor.
++2. Modify it to fit your project. Here's a basic example:
++
++```yaml
++site_name: Colored Custom Logger
++theme: readthedocs
++nav:
++  - Home: index.md
++  - Installation: installation.md
++  - Usage: usage.md
++  - API Reference: api.md
++```
++
++## Step 4: Write your documentation
++
++1. In the `docs` directory, create Markdown files for each section of your documentation.
++2. For example, create `installation.md`, `usage.md`, and `api.md`.
++3. Write your documentation in these files using Markdown syntax.
++
++## Step 5: Preview your documentation
++
++1. In your project root, run:
++
++```bash
++mkdocs serve
++```
++
++2. Open a web browser and go to `http://127.0.0.1:8000/` to preview your documentation.
++
++## Step 6: Push your changes to GitHub
++
++1. Commit your changes:
++
++```bash
++git add .
++git commit -m "Add MkDocs documentation"
++```
++
++2. Push to GitHub:
++
++```bash
++git push origin main
++```
++
++## Step 7: Set up GitHub Pages
++
++1. In your GitHub repository, go to Settings > Pages.
++2. Under "Source", select the branch you want to use for GitHub Pages (usually `main` or `master`).
++3. Select the `/docs` folder as the source.
++4. Click Save.
++
++## Step 8: Build and deploy your documentation
++
++1. In your local project directory, run:
++
++```bash
++mkdocs gh-deploy
++```
++
++This command builds your documentation and pushes it to a new branch called `gh-pages`.
++
++2. Your documentation should now be available at `https://yourusername.github.io/colored_custom_logger/`.
++
++## Updating your documentation
++
++Whenever you make changes to your documentation:
++
++1. Edit the Markdown files in the `docs` directory.
++2. Commit and push your changes to GitHub.
++3. Run `mkdocs gh-deploy` to update your GitHub Pages site.
++
++Remember to keep your documentation up-to-date as you make changes to your project!
+\ No newline at end of file
+diff --git a/README.md b/README.md
+index 08600f2..05d1408 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,92 @@
+-# colored_custom_logger
+\ No newline at end of file
++# 🌈 Colored Custom Logger
++
++[![PyPI version](https://badge.fury.io/py/colored-custom-logger.svg)](https://badge.fury.io/py/colored-custom-logger)
++[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
++[![Python Versions](https://img.shields.io/pypi/pyversions/colored-custom-logger.svg)](https://pypi.org/project/colored-custom-logger/)
++
++Turn your monochrome console into a vibrant logging fiesta! 🎉
++
++## 🌟 Features
++
++- 🎨 Colorful date and log level outputs
++- 🚦 Easy-to-distinguish log levels
++- 🔧 Customizable and extendable
++- 🚀 Simple to integrate into existing projects
++- 🐍 Pure Python, no extra dependencies (except colorama for Windows support)
++
++## 📸 See It in Action
++
++Feast your eyes on these beautiful logs:
++
++![Colored Logger Demo](docs/images/showcase_example.png)
++
++*Note: Replace this with an actual screenshot of your logger in action*
++
++## 🚀 Installation
++
++Get started with a simple pip install:
++
++```bash
++pip install colored-custom-logger
++```
++
++## 🎮 Quick Start
++
++Here's a taste of what you can do with Colored Custom Logger:
++
++```python
++from colored_custom_logger import CustomLogger
++
++# Create your fabulous logger
++logger = CustomLogger.get_logger(__name__)
++
++# Let the colorful logging begin!
++logger.debug("🔍 This is a debug message")
++logger.info("ℹ️ Here's some info for you")
++logger.warning("⚠️ Uh-oh, this is a warning")
++logger.error("❌ Oops! We've got an error")
++logger.critical("🚨 MAYDAY! MAYDAY! This is critical!")
++```
++
++And voilà! Your console will transform into this:
++
++![Logger Output](docs/images/basic_usage.png)
++
++*Note: Replace this with an actual screenshot of your logger output*
++
++## 🌈 Color Scheme
++
++Our carefully curated color palette ensures your logs are both beautiful and readable:
++
++- 🔵 DEBUG: Cool Blue
++- 🟢 INFO: Go Green
++- 🟡 WARNING: Yummy Yellow
++- 🔴 ERROR: Radical Red
++- 🔥 CRITICAL: Blazing Bright Red
++
++## 🛠️ Advanced Usage
++
++Want to customize your logger further? No problem! Check out our advanced usage guide:
++
++![Advanced Usage](docs/images/advanced_usage.png)
++
++*Note: Replace this with an image showcasing advanced usage examples*
++
++## 🤝 Contributing
++
++We love contributions! If you have ideas for new features, improvements, or just want to report a bug, please open an issue or submit a pull request. Let's make logging colorful for everyone! 🌈
++
++## 📜 License
++
++This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
++
++## 🙏 Acknowledgements
++
++- Thanks to the [colorama](https://pypi.org/project/colorama/) project for making cross-platform colored terminal text output possible.
++- Inspired by all the monochrome loggers out there, waiting for a splash of color.
++
++---
++
++Made with ❤️ and 🌈 by [Robin Collins](https://github.com/robin-collins)
++
++Remember, life's too short for boring logs! 🎭🎨
+\ No newline at end of file
+diff --git a/docs/api.md b/docs/api.md
+new file mode 100644
+index 0000000..bbafe77
+--- /dev/null
++++ b/docs/api.md
+@@ -0,0 +1,201 @@
++# API Reference
++
++This document provides a detailed reference for all public classes, methods, and attributes in the `colored_custom_logger` module.
++
++## Table of Contents
++
++1. [CustomLogger](#customlogger)
++2. [ColoredFormatter](#coloredformatter)
++3. [Utility Functions](#utility-functions)
++
++## CustomLogger
++
++`CustomLogger` is the main class you'll interact with. It's a subclass of `logging.Logger` that uses a `ColoredFormatter` by default.
++
++### Class Definition
++
++```python
++class CustomLogger(logging.Logger):
++    def __init__(self, name: str, level: int = logging.DEBUG)
++```
++
++### Class Methods
++
++#### `get_logger`
++
++```python
++@classmethod
++def get_logger(cls, name: str, level: int = logging.DEBUG) -> CustomLogger
++```
++
++Creates and returns a `CustomLogger` instance.
++
++**Parameters:**
++- `name` (str): The name of the logger.
++- `level` (int, optional): The logging level. Defaults to `logging.DEBUG`.
++
++**Returns:**
++- `CustomLogger`: An instance of the CustomLogger.
++
++**Example:**
++```python
++logger = CustomLogger.get_logger("my_app")
++```
++
++### Instance Methods
++
++#### `setup_logger`
++
++```python
++def setup_logger(self) -> None
++```
++
++Sets up the logger with a `ColoredFormatter` and console handler.
++
++**Example:**
++```python
++logger = CustomLogger("my_app")
++logger.setup_logger()
++```
++
++#### Standard Logging Methods
++
++The `CustomLogger` class inherits all standard logging methods from `logging.Logger`. These include:
++
++- `debug(msg, *args, **kwargs)`
++- `info(msg, *args, **kwargs)`
++- `warning(msg, *args, **kwargs)`
++- `error(msg, *args, **kwargs)`
++- `critical(msg, *args, **kwargs)`
++- `exception(msg, *args, exc_info=True, **kwargs)`
++
++Each of these methods logs a message with the corresponding severity level.
++
++**Parameters:**
++- `msg` (str): The message to log.
++- `*args`: Variable positional arguments to be merged into `msg`.
++- `**kwargs`: Keyword arguments. These can include `exc_info` (a boolean, exception, or tuple) and `stack_info` (a boolean).
++
++**Example:**
++```python
++logger.debug("Debug message")
++logger.info("Info message with %s", "formatting")
++logger.warning("Warning message")
++logger.error("Error message")
++logger.critical("Critical message")
++logger.exception("Exception message", exc_info=True)
++```
++
++## ColoredFormatter
++
++`ColoredFormatter` is a custom formatter that applies colors to log messages based on their level.
++
++### Class Definition
++
++```python
++class ColoredFormatter(logging.Formatter):
++    def __init__(self, fmt: Optional[str] = None, datefmt: Optional[str] = None, style: str = '%')
++```
++
++### Class Attributes
++
++#### `COLORS`
++
++A dictionary mapping log levels to color codes.
++
++```python
++COLORS = {
++    "DEBUG": Fore.BLUE,
++    "INFO": Fore.GREEN,
++    "WARNING": Fore.YELLOW,
++    "ERROR": Fore.RED,
++    "CRITICAL": Fore.RED + Style.BRIGHT,
++}
++```
++
++### Instance Methods
++
++#### `format`
++
++```python
++def format(self, record: logging.LogRecord) -> str
++```
++
++Formats the log record with appropriate colors.
++
++**Parameters:**
++- `record` (logging.LogRecord): The log record to format.
++
++**Returns:**
++- `str`: The formatted log message with color codes.
++
++**Example:**
++```python
++formatter = ColoredFormatter("%(asctime)s - %(levelname)s - %(message)s")
++formatted_message = formatter.format(log_record)
++```
++
++## Utility Functions
++
++### `init_logger`
++
++```python
++def init_logger(name: str, level: int = logging.DEBUG) -> CustomLogger
++```
++
++A convenience function to initialize and return a `CustomLogger`.
++
++**Parameters:**
++- `name` (str): The name of the logger.
++- `level` (int, optional): The logging level. Defaults to `logging.DEBUG`.
++
++**Returns:**
++- `CustomLogger`: An initialized CustomLogger instance.
++
++**Example:**
++```python
++logger = init_logger("my_app", level=logging.INFO)
++```
++
++## Constants
++
++### Log Levels
++
++The module uses standard Python logging levels:
++
++- `DEBUG = 10`
++- `INFO = 20`
++- `WARNING = 30`
++- `ERROR = 40`
++- `CRITICAL = 50`
++
++These can be imported from the `logging` module or accessed via `logging.DEBUG`, `logging.INFO`, etc.
++
++## Best Practices
++
++1. Use meaningful logger names, typically `__name__` or the name of the component.
++2. Set appropriate log levels for different environments (e.g., DEBUG for development, INFO for production).
++3. Use log messages to provide context, not just to state what code is executing.
++4. When adding custom colors to messages, always reset the color afterwards using `Style.RESET_ALL`.
++
++## Thread Safety
++
++The `CustomLogger` and `ColoredFormatter` classes are thread-safe, inheriting this property from the standard `logging` module. However, be cautious when modifying global state (like changing log levels) in a multi-threaded environment.
++
++## Performance Considerations
++
++Logging can impact performance, especially at DEBUG level. In production environments, consider setting the log level to INFO or higher for optimal performance.
++
++## Extending the Module
++
++To extend the functionality of `colored_custom_logger`:
++
++1. Subclass `CustomLogger` or `ColoredFormatter` to add new features.
++2. Create custom handlers if you need special output behavior.
++3. Modify the `COLORS` dictionary in `ColoredFormatter` to change default colors.
++
++Remember to maintain backwards compatibility if you're extending the public API.
++
++---
++
++This API reference provides a comprehensive overview of the `colored_custom_logger` module. For usage examples and more context, please refer to the [Usage Guide](usage.md).
+\ No newline at end of file
+diff --git a/docs/images/advanced_usage.png b/docs/images/advanced_usage.png
+new file mode 100644
+index 0000000..7eabf2f
+Binary files /dev/null and b/docs/images/advanced_usage.png differ
+diff --git a/docs/images/basic_usage.png b/docs/images/basic_usage.png
+new file mode 100644
+index 0000000..f7a1222
+Binary files /dev/null and b/docs/images/basic_usage.png differ
+diff --git a/docs/images/custom_color_example.png b/docs/images/custom_color_example.png
+new file mode 100644
+index 0000000..4677959
+Binary files /dev/null and b/docs/images/custom_color_example.png differ
+diff --git a/docs/images/exception_logging_example.png b/docs/images/exception_logging_example.png
+new file mode 100644
+index 0000000..83f0625
+Binary files /dev/null and b/docs/images/exception_logging_example.png differ
+diff --git a/docs/images/multiple_Loggers.example.png b/docs/images/multiple_Loggers.example.png
+new file mode 100644
+index 0000000..ab95428
+Binary files /dev/null and b/docs/images/multiple_Loggers.example.png differ
+diff --git a/docs/images/showcase_example.png b/docs/images/showcase_example.png
+new file mode 100644
+index 0000000..d611ea9
+Binary files /dev/null and b/docs/images/showcase_example.png differ
+diff --git a/docs/index.md b/docs/index.md
+new file mode 100644
+index 0000000..7b4ecd6
+--- /dev/null
++++ b/docs/index.md
+@@ -0,0 +1,41 @@
++# Welcome to Colored Custom Logger
++
++Colored Custom Logger is a Python module that extends the functionality of the built-in `logging` module to provide colorized log output. It's designed to make log messages more readable and distinguishable, especially when working with console output.
++
++## Features
++
++- Colorized log output for improved readability
++- Easy to integrate with existing Python projects
++- Customizable color schemes
++- Support for both console and file logging
++- Compatible with Python's built-in logging module
++
++## Quick Start
++
++Get started with Colored Custom Logger in just a few lines of code:
++
++```python
++from colored_custom_logger import CustomLogger
++
++logger = CustomLogger.get_logger(__name__)
++
++logger.debug("This is a debug message")
++logger.info("This is an info message")
++logger.warning("This is a warning message")
++logger.error("This is an error message")
++logger.critical("This is a critical message")
++```
++
++## Navigation
++
++Use the navigation menu to explore different sections of the documentation:
++
++- [Installation](installation.md): Learn how to install Colored Custom Logger
++- [Usage](usage.md): Detailed guide on how to use the module
++- [API Reference](api.md): Complete API documentation
++
++## Getting Help
++
++If you encounter any issues or have questions, please check our [Troubleshooting](troubleshooting.md) section or open an issue on our [GitHub repository](https://github.com/robin-collins/colored_custom_logger).
++
++Thank you for using Colored Custom Logger!
+\ No newline at end of file
+diff --git a/docs/installation.md b/docs/installation.md
+new file mode 100644
+index 0000000..09e4022
+--- /dev/null
++++ b/docs/installation.md
+@@ -0,0 +1,94 @@
++# Installation Guide
++
++This guide will walk you through the process of installing the `colored_custom_logger` module in your Python environment.
++
++## Prerequisites
++
++Before installing `colored_custom_logger`, ensure you have the following:
++
++- Python 3.7 or higher installed on your system
++- pip (Python package installer) installed
++
++You can check your Python version by running:
++
++```bash
++python --version
++```
++
++## Installation Steps
++
++### 1. Install using pip
++
++The easiest way to install `colored_custom_logger` is using pip. Open your terminal or command prompt and run:
++
++```bash
++pip install colored-custom-logger
++```
++
++This command will download and install the latest version of `colored_custom_logger` along with its dependencies.
++
++### 2. Verify the Installation
++
++After the installation is complete, you can verify it by importing the module in Python:
++
++```python
++from colored_custom_logger import CustomLogger
++
++# If no error occurs, the installation was successful
++```
++
++## Installing from Source
++
++If you prefer to install from source or want to contribute to the development:
++
++1. Clone the repository:
++
++   ```bash
++   git clone https://github.com/robin-collins/colored_custom_logger.git
++   ```
++
++2. Navigate to the project directory:
++
++   ```bash
++   cd colored_custom_logger
++   ```
++
++3. Install the package in editable mode:
++
++   ```bash
++   pip install -e .
++   ```
++
++## Dependencies
++
++`colored_custom_logger` depends on the following packages:
++
++- colorama
++
++These dependencies will be automatically installed when you install `colored_custom_logger` using pip.
++
++## Troubleshooting
++
++If you encounter any issues during installation:
++
++1. Ensure you have the latest version of pip:
++
++   ```bash
++   pip install --upgrade pip
++   ```
++
++2. If you're using a virtual environment, make sure it's activated before installation.
++
++3. On some systems, you might need to use `pip3` instead of `pip` to ensure you're using Python 3.
++
++   ```bash
++   pip3 install colored-custom-logger
++   ```
++
++4. If you encounter permission errors, you may need to use `sudo` (on Unix-based systems) or run your command prompt as administrator (on Windows).
++
++## Next Steps
++
++After installation, you're ready to start using `colored_custom_logger` in your projects. Check out the [Usage Guide](usage.md) for examples and best practices.
++
++For any further issues or questions, please [open an issue](https://github.com/robin-collins/colored_custom_logger/issues) on our GitHub repository.
+\ No newline at end of file
+diff --git a/docs/usage.md b/docs/usage.md
+new file mode 100644
+index 0000000..aa1707d
+--- /dev/null
++++ b/docs/usage.md
+@@ -0,0 +1,220 @@
++# Usage Guide
++
++This guide provides comprehensive examples of how to use the `colored_custom_logger` module in your Python projects. From basic setup to advanced features, you'll find everything you need to make the most of colored logging in your applications.
++
++## Table of Contents
++
++- [Usage Guide](#usage-guide)
++  - [Table of Contents](#table-of-contents)
++  - [Basic Usage](#basic-usage)
++  - [Customizing Log Levels](#customizing-log-levels)
++  - [Using Custom Colors](#using-custom-colors)
++  - [Multiple Loggers](#multiple-loggers)
++  - [Logging to Files](#logging-to-files)
++  - [Advanced Formatting](#advanced-formatting)
++  - [Context Managers](#context-managers)
++  - [Integration with Existing Projects](#integration-with-existing-projects)
++
++## Basic Usage
++
++To get started with `colored_custom_logger`, follow these simple steps:
++
++1. Import the `CustomLogger` class:
++
++```python
++from colored_custom_logger import CustomLogger
++```
++
++2. Create a logger instance:
++
++```python
++logger = CustomLogger.get_logger(__name__)
++```
++
++3. Start logging messages:
++
++```python
++logger.debug("This is a debug message")
++logger.info("This is an info message")
++logger.warning("This is a warning message")
++logger.error("This is an error message")
++logger.critical("This is a critical message")
++```
++
++Here's how the output might look:
++
++[SCREENSHOT_PLACEHOLDER: basic_usage.png]
++
++## Customizing Log Levels
++
++You can customize the log level to control which messages are displayed:
++
++```python
++import logging
++from colored_custom_logger import CustomLogger
++
++logger = CustomLogger.get_logger(__name__, level=logging.INFO)
++
++logger.debug("This debug message won't be displayed")
++logger.info("This info message will be displayed")
++logger.warning("This warning message will be displayed")
++```
++
++You can also change the log level dynamically:
++
++```python
++logger.setLevel(logging.DEBUG)
++logger.debug("Now this debug message will be displayed")
++```
++
++[SCREENSHOT_PLACEHOLDER: custom_log_levels.png]
++
++## Using Custom Colors
++
++You can incorporate custom colors into your log messages using the `colorama` library:
++
++```python
++from colored_custom_logger import CustomLogger
++from colorama import Fore, Back, Style
++
++logger = CustomLogger.get_logger(__name__)
++
++logger.info(f"This message has {Fore.BLUE}blue text{Style.RESET_ALL}")
++logger.warning(f"This is a {Fore.MAGENTA}magenta warning{Style.RESET_ALL}")
++logger.error(f"Error! {Back.WHITE}{Fore.RED}Something went wrong!{Style.RESET_ALL}")
++```
++
++[SCREENSHOT_PLACEHOLDER: custom_colors.png]
++
++## Multiple Loggers
++
++For larger applications, you might want to use multiple loggers:
++
++```python
++main_logger = CustomLogger.get_logger("main")
++db_logger = CustomLogger.get_logger("database")
++api_logger = CustomLogger.get_logger("api")
++
++main_logger.info("Application starting")
++db_logger.debug("Connecting to database")
++api_logger.warning("API rate limit approaching")
++```
++
++[SCREENSHOT_PLACEHOLDER: multiple_loggers.png]
++
++## Logging to Files
++
++You can configure your logger to write to a file in addition to the console:
++
++```python
++import logging
++from colored_custom_logger import CustomLogger
++
++logger = CustomLogger.get_logger(__name__)
++
++# Create a file handler
++file_handler = logging.FileHandler("app.log")
++file_handler.setLevel(logging.DEBUG)
++
++# Create a formatting for the file logs
++file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
++file_handler.setFormatter(file_formatter)
++
++# Add the file handler to the logger
++logger.addHandler(file_handler)
++
++logger.debug("This message will go to both console and file")
++logger.info("So will this info message")
++```
++
++[SCREENSHOT_PLACEHOLDER: file_logging.png]
++
++## Advanced Formatting
++
++You can create custom formats for your log messages:
++
++```python
++from colored_custom_logger import CustomLogger, ColoredFormatter
++import logging
++
++logger = CustomLogger.get_logger(__name__)
++
++custom_formatter = ColoredFormatter(
++    fmt="%(asctime)s | %(levelname)8s | %(name)s | %(message)s",
++    datefmt="%Y-%m-%d %H:%M:%S"
++)
++
++# Assuming the first handler is the console handler
++console_handler = logger.handlers[0]
++console_handler.setFormatter(custom_formatter)
++
++logger.info("This message uses the custom format")
++logger.warning("So does this warning message")
++```
++
++[SCREENSHOT_PLACEHOLDER: advanced_formatting.png]
++
++## Context Managers
++
++You can use context managers to temporarily change logging behavior:
++
++```python
++from colored_custom_logger import CustomLogger
++import logging
++from contextlib import contextmanager
++
++logger = CustomLogger.get_logger(__name__, level=logging.INFO)
++
++@contextmanager
++def temporary_loglevel(temp_level):
++    original_level = logger.level
++    logger.setLevel(temp_level)
++    try:
++        yield
++    finally:
++        logger.setLevel(original_level)
++
++logger.debug("This debug message won't appear")
++
++with temporary_loglevel(logging.DEBUG):
++    logger.debug("This debug message will appear")
++
++logger.debug("This debug message won't appear again")
++```
++
++[SCREENSHOT_PLACEHOLDER: context_managers.png]
++
++## Integration with Existing Projects
++
++If you're integrating `colored_custom_logger` into an existing project, you might need to configure it to work with other logging setups:
++
++```python
++import logging
++from colored_custom_logger import CustomLogger, ColoredFormatter
++
++# Configure the root logger
++logging.basicConfig(level=logging.INFO)
++
++# Create a colored formatter
++colored_formatter = ColoredFormatter()
++
++# Get the root logger and add a colored console handler
++root_logger = logging.getLogger()
++console_handler = logging.StreamHandler()
++console_handler.setFormatter(colored_formatter)
++root_logger.addHandler(console_handler)
++
++# Now you can create loggers as usual, and they'll use the colored formatter
++logger = logging.getLogger(__name__)
++logger.info("This message will be colored")
++
++# You can still create CustomLogger instances for specific modules
++custom_logger = CustomLogger.get_logger("custom_module")
++custom_logger.warning("This warning uses CustomLogger directly")
++```
++
++[SCREENSHOT_PLACEHOLDER: integration.png]
++
++By following these examples, you should be able to make full use of the `colored_custom_logger` in your Python projects. Remember to adjust the log levels and formats to best suit your specific needs.
++
++For more detailed information about the `CustomLogger` and `ColoredFormatter` classes, check out the [API Reference](api.md).
+\ No newline at end of file
+diff --git a/examples/basic_usage.py b/examples/basic_usage.py
+new file mode 100644
+index 0000000..e421718
+--- /dev/null
++++ b/examples/basic_usage.py
+@@ -0,0 +1,18 @@
++from colored_custom_logger import CustomLogger
++
++def main():
++    # Example usage
++    logger = CustomLogger.get_logger(__name__)
++    
++    logger.debug("This is a debug message")
++    logger.info("This is an info message")
++    logger.warning("This is a warning message")
++    logger.error("This is an error message")
++    logger.critical("This is a critical message")
++    
++    # Example with manual color in the message
++    from colorama import Fore, Back, Style
++    logger.info(f"This is a message with {Fore.YELLOW}yellow text{Style.RESET_ALL} and {Back.BLUE}blue background{Style.RESET_ALL}")
++
++if __name__ == "__main__":
++    main()
+diff --git a/examples/ss_advanced_usage.py b/examples/ss_advanced_usage.py
+new file mode 100644
+index 0000000..80073d0
+--- /dev/null
++++ b/examples/ss_advanced_usage.py
+@@ -0,0 +1,67 @@
++import logging
++import os
++from contextlib import contextmanager
++
++from colored_custom_logger import ColoredFormatter, CustomLogger
++
++# Create a custom logger
++logger = CustomLogger.get_logger("advanced_example")
++
++# 1. Changing log levels dynamically
++print("1. Changing log levels dynamically:")
++logger.setLevel(logging.INFO)
++logger.debug("This debug message won't be displayed")
++logger.info("This info message will be displayed")
++
++logger.setLevel(logging.DEBUG)
++logger.debug("Now this debug message will be displayed")
++
++# 2. Adding a file handler
++log_file = "advanced_example.log"
++file_handler = logging.FileHandler(log_file)
++file_handler.setLevel(logging.DEBUG)
++file_formatter = logging.Formatter(
++    "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
++)
++file_handler.setFormatter(file_formatter)
++logger.addHandler(file_handler)
++
++print("\n2. Logging to both console and file:")
++logger.info("This message goes to both console and file")
++print(f"Check {log_file} for the logged message")
++
++# 3. Custom log format
++custom_formatter = ColoredFormatter(
++    fmt="%(asctime)s | %(levelname)8s | %(name)s | %(message)s",
++    datefmt="%Y-%m-%d %H:%M:%S",
++)
++console_handler = logger.handlers[
++    0
++]  # Assuming the first handler is the console handler
++console_handler.setFormatter(custom_formatter)
++
++print("\n3. Using a custom log format:")
++logger.info("This message uses the custom format")
++
++
++# 4. Context manager for temporary logging changes
++@contextmanager
++def temporary_loglevel(temp_level):
++    original_level = logger.level
++    logger.setLevel(temp_level)
++    try:
++        yield
++    finally:
++        logger.setLevel(original_level)
++
++
++print("\n4. Using a context manager for temporary logging changes:")
++logger.setLevel(logging.INFO)
++logger.debug("This debug message won't appear")
++with temporary_loglevel(logging.DEBUG):
++    logger.debug("This debug message will appear")
++logger.debug("This debug message won't appear again")
++
++# Clean up
++logger.removeHandler(file_handler)
++os.remove(log_file)
+diff --git a/examples/ss_basic_usage.py b/examples/ss_basic_usage.py
+new file mode 100644
+index 0000000..f48a318
+--- /dev/null
++++ b/examples/ss_basic_usage.py
+@@ -0,0 +1,9 @@
++from colored_custom_logger import CustomLogger
++
++logger = CustomLogger.get_logger("basic_example")
++
++logger.debug("This is a debug message")
++logger.info("This is an info message")
++logger.warning("This is a warning message")
++logger.error("This is an error message")
++logger.critical("This is a critical message")
+diff --git a/examples/ss_custom_color_example.py b/examples/ss_custom_color_example.py
+new file mode 100644
+index 0000000..4987e34
+--- /dev/null
++++ b/examples/ss_custom_color_example.py
+@@ -0,0 +1,10 @@
++from colorama import Back, Fore, Style
++from colored_custom_logger import CustomLogger
++
++logger = CustomLogger.get_logger("custom_color_example")
++
++logger.info(
++    f"This message has {Fore.BLUE}blue text{Style.RESET_ALL} and {Back.YELLOW}yellow background{Style.RESET_ALL}"
++)
++logger.warning(f"This is a {Fore.MAGENTA}magenta warning{Style.RESET_ALL}")
++logger.error(f"Error! {Back.WHITE}{Fore.RED}Something went wrong!{Style.RESET_ALL}")
+diff --git a/examples/ss_exception_logging_example.py b/examples/ss_exception_logging_example.py
+new file mode 100644
+index 0000000..4e7d786
+--- /dev/null
++++ b/examples/ss_exception_logging_example.py
+@@ -0,0 +1,8 @@
++from colored_custom_logger import CustomLogger
++
++logger = CustomLogger.get_logger("exception_example")
++
++try:
++    1 / 0
++except ZeroDivisionError:
++    logger.exception("An error occurred:")
+diff --git a/examples/ss_multiple_loggers_example.py b/examples/ss_multiple_loggers_example.py
+new file mode 100644
+index 0000000..716d3c8
+--- /dev/null
++++ b/examples/ss_multiple_loggers_example.py
+@@ -0,0 +1,12 @@
++from colored_custom_logger import CustomLogger
++
++# Create loggers for different components
++main_logger = CustomLogger.get_logger("main")
++db_logger = CustomLogger.get_logger("database")
++api_logger = CustomLogger.get_logger("api")
++
++main_logger.info("Application starting")
++db_logger.debug("Connecting to database")
++api_logger.warning("API rate limit approaching")
++main_logger.error("An error occurred in the main process")
++db_logger.critical("Database connection lost")
+diff --git a/examples/ss_showcase_example.py b/examples/ss_showcase_example.py
+new file mode 100644
+index 0000000..45a32c5
+--- /dev/null
++++ b/examples/ss_showcase_example.py
+@@ -0,0 +1,29 @@
++from colorama import Back, Fore, Style
++from colored_custom_logger import CustomLogger
++
++# Basic usage
++print("Default color setup:")
++logger = CustomLogger.get_logger("basic_example")
++
++logger.debug("This is a debug message")
++logger.info("This is an info message")
++logger.warning("This is a warning message")
++logger.error("This is an error message")
++logger.critical("This is a critical message")
++
++print("\nCustom colors:")
++logger.info(
++    f"This message has {Fore.BLUE}blue text{Style.RESET_ALL} and {Back.YELLOW}yellow background{Style.RESET_ALL}"
++)
++logger.warning(f"This is a {Fore.MAGENTA}magenta warning{Style.RESET_ALL}")
++
++print("\nMultiple loggers:")
++main_logger = CustomLogger.get_logger("main")
++db_logger = CustomLogger.get_logger("database")
++api_logger = CustomLogger.get_logger("api")
++
++main_logger.info("Application starting")
++db_logger.debug("Connecting to database")
++api_logger.warning("API rate limit approaching")
++main_logger.error("An error occurred in the main process")
++db_logger.critical("Database connection lost")
+diff --git a/mkdocs.yml b/mkdocs.yml
+new file mode 100644
+index 0000000..885a093
+--- /dev/null
++++ b/mkdocs.yml
+@@ -0,0 +1,7 @@
++site_name: Colored Custom Logger
++theme: readthedocs
++nav:
++- Home: index.md
++- Installation: installation.md
++- Usage: usage.md
++- API Reference: api.md
+diff --git a/pyproject.toml b/pyproject.toml
+new file mode 100644
+index 0000000..dde1900
+--- /dev/null
++++ b/pyproject.toml
+@@ -0,0 +1,47 @@
++[build-system]
++requires = ["hatchling"]
++build-backend = "hatchling.build"
++
++[project]
++name = "colored_custom_logger"
++version = "1.5.2"
++authors = [
++  { name = "Robin Collins", email = "robin@blackcat-it.com.au" },
++]
++description = "A custom logger with colorful output"
++readme = "README.md"
++requires-python = ">=3.7"
++classifiers = [
++    "Programming Language :: Python :: 3",
++    "Programming Language :: Python :: 3.7",
++    "Programming Language :: Python :: 3.8",
++    "Programming Language :: Python :: 3.9",
++    "Programming Language :: Python :: 3.10",
++    "Programming Language :: Python :: 3.11",
++    "License :: OSI Approved :: MIT License",
++    "Operating System :: OS Independent",
++    "Intended Audience :: Developers",
++    "Topic :: System :: Logging",
++]
++dependencies = [
++    "colorama",
++]
++
++[project.urls]
++"Homepage" = "https://github.com/robin-collins/colored_custom_logger"
++"Bug Tracker" = "https://github.com/robin-collins/colored_custom_logger/issues"
++"Documentation" = "https://github.com/robin-collins/colored_custom_logger#readme"
++
++[tool.hatch.build.targets.wheel]
++packages = ["src/colored_custom_logger"]
++
++[tool.pylint.master]
++init-hook='import sys; sys.path.append("src")'
++
++[tool.pylint.messages_control]
++disable = [
++    "C0111",  # missing-docstring
++]
++
++[tool.pylint.format]
++max-line-length = "100"
+\ No newline at end of file
+diff --git a/requirements.txt b/requirements.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/setup.py b/setup.py
+new file mode 100644
+index 0000000..3421116
+--- /dev/null
++++ b/setup.py
+@@ -0,0 +1,8 @@
++from setuptools import find_packages, setup
++
++setup(
++    name="colored_custom_logger",
++    version="1.5.2",
++    packages=find_packages(where="src"),
++    package_dir={"": "src"},
++)
+diff --git a/src/colored_custom_logger/__init__.py b/src/colored_custom_logger/__init__.py
+new file mode 100644
+index 0000000..e66cf13
+--- /dev/null
++++ b/src/colored_custom_logger/__init__.py
+@@ -0,0 +1,3 @@
++from colored_custom_logger.logger import ColoredFormatter, CustomLogger
++
++__all__ = ["CustomLogger", "ColoredFormatter"]
+diff --git a/src/colored_custom_logger/logger.py b/src/colored_custom_logger/logger.py
+new file mode 100644
+index 0000000..2ee75bd
+--- /dev/null
++++ b/src/colored_custom_logger/logger.py
+@@ -0,0 +1,171 @@
++"""
++logger.py - A module for setting up consistent, partially colorful logging across multiple modules.
++
++This module provides a CustomLogger class that can be used directly for logging with colorful date
++and log level, while leaving the rest of the output in plain text.
++
++Version: 1.5.2
++"""
++
++import logging
++
++from colorama import Fore, Style, init
++
++# Initialize colorama
++init(autoreset=True)
++
++
++class ColoredFormatter(logging.Formatter):
++    """
++    A custom logging formatter that applies colors to log level names.
++
++    This formatter extends the standard logging.Formatter to add color-coding
++    to log level names in the output. It uses the colorama library to apply
++    different colors to different log levels.
++
++    Attributes:
++        COLORS (dict): A dictionary mapping log level names to colorama color codes.
++            - DEBUG: Blue
++            - INFO: Green
++            - WARNING: Yellow
++            - ERROR: Red
++            - CRITICAL: Bright Red
++    """
++
++    COLORS = {
++        "DEBUG": Fore.BLUE,
++        "INFO": Fore.GREEN,
++        "WARNING": Fore.YELLOW,
++        "ERROR": Fore.RED,
++        "CRITICAL": Fore.RED + Style.BRIGHT,
++    }
++
++    def __init__(self, fmt=None, datefmt=None, style="%"):
++        """
++        Initialize the ColoredFormatter.
++
++        This method sets up the formatter with the given format string, date format, and style.
++        If no format string is provided, it uses a default format.
++
++        Args:
++            fmt (str, optional): A format string for log messages. If None default format is used.
++            datefmt (str, optional): A format string for dates in log messages.
++                                     If None default date format is used.
++            style (str, optional): The style of the format string. Can be '%', '{', or '$'.
++                                   Defaults to '%'.
++
++        Returns:
++            None
++        """
++        super().__init__(fmt, datefmt, style)
++        self._base_fmt = fmt or "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
++        self._colored_fmt = "%(asctime)s - %(levelname)s - %(name)s -"
++        self._plain_fmt = " %(message)s"
++
++    def format(self, record):
++        """
++        Format the specified record as text.
++
++        This method overrides the standard format method to add color to the log level.
++        It creates a new Formatter instance with a colored format string for each record,
++        ensuring that the original formatter remains unchanged.
++
++        Args:
++            record (logging.LogRecord): The log record to format.
++
++        Returns:
++            str: The formatted log record as a string, with the log level colored according
++                to the COLORS dictionary.
++        """
++        # Format the colored part
++        colored_parts = self._colored_fmt % {
++            "asctime": self.formatTime(record, self.datefmt),
++            "levelname": record.levelname,
++            "name": record.name,
++        }
++
++        # Apply color to the formatted colored parts
++        color = self.COLORS.get(record.levelname, "")
++        colored_parts = f"{color}{colored_parts}{Style.RESET_ALL}"
++
++        # Format the plain part
++        plain_parts = self._plain_fmt % {"message": record.getMessage()}
++
++        # Combine colored and plain parts
++        formatted_message = colored_parts + plain_parts
++
++        # Handle exception information if present
++        if record.exc_info:
++            if not record.exc_text:
++                record.exc_text = self.formatException(record.exc_info)
++        if record.exc_text:
++            formatted_message += "\n" + record.exc_text
++
++        return formatted_message
++
++
++class CustomLogger(logging.Logger):
++    """
++    A custom logger class that extends the standard logging.Logger.
++
++    This logger is configured with a colored formatter and console handler.
++    """
++
++    def __init__(self, name: str, level: int = logging.DEBUG):
++        """
++        Initialize the CustomLogger.
++
++        Args:
++            name (str): The name of the logger.
++            level (int): The logging level. Defaults to logging.INFO.
++        """
++        super().__init__(name, level)
++        self.setup_logger()
++
++    def setup_logger(self):
++        """
++        Set up the logger with a colored formatter and console handler.
++
++        This method configures the logger by:
++        1. Removing any existing handlers.
++        2. Creating a new console handler with DEBUG level.
++        3. Creating a ColoredFormatter.
++        4. Adding the formatter to the console handler.
++        5. Adding the console handler to the logger.
++        6. Disabling propagation to the root logger.
++        """
++        # Remove all handlers associated with the logger object
++        for handler in self.handlers[:]:
++            self.removeHandler(handler)
++
++        # Create console handler and set level to debug
++        console_handler = logging.StreamHandler()
++        console_handler.setLevel(logging.DEBUG)
++
++        # Create formatter
++        formatter = ColoredFormatter(
++            "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
++        )
++
++        # Add formatter to console handler
++        console_handler.setFormatter(formatter)
++
++        # Add console handler to logger
++        self.addHandler(console_handler)
++
++        # Prevent the logger from propagating messages to the root logger
++        self.propagate = False
++
++    @classmethod
++    def get_logger(cls, name: str, level: int = logging.DEBUG):
++        """
++        Get a CustomLogger instance.
++
++        Args:
++            name (str): The name of the logger.
++            level (int): The logging level. Defaults to logging.INFO.
++
++        Returns:
++            CustomLogger: A configured logger instance.
++        """
++        return cls(name, level)
+diff --git a/tests/test_logger.py b/tests/test_logger.py
+new file mode 100644
+index 0000000..13298c1
+--- /dev/null
++++ b/tests/test_logger.py
+@@ -0,0 +1,69 @@
++import logging
++import unittest
++from io import StringIO
++
++from colorama import Fore, Style
++from colored_custom_logger.logger import ColoredFormatter, CustomLogger
++
++
++class TestColoredCustomLogger(unittest.TestCase):
++    def setUp(self):
++        self.logger = CustomLogger.get_logger("test_logger", level=logging.DEBUG)
++        self.log_capture = StringIO()
++        self.handler = logging.StreamHandler(self.log_capture)
++        self.handler.setFormatter(ColoredFormatter())
++        self.logger.addHandler(self.handler)
++
++    def tearDown(self):
++        self.logger.removeHandler(self.handler)
++        self.log_capture.close()
++
++    def test_logger_levels(self):
++        test_messages = {
++            "debug": "Debug message",
++            "info": "Info message",
++            "warning": "Warning message",
++            "error": "Error message",
++            "critical": "Critical message",
++        }
++
++        for level, message in test_messages.items():
++            getattr(self.logger, level)(message)
++
++        log_output = self.log_capture.getvalue()
++
++        for level, message in test_messages.items():
++            self.assertIn(message, log_output)
++            self.assertIn(level.upper(), log_output)
++
++    def test_colored_output(self):
++        self.logger.info("Test colored output")
++        log_output = self.log_capture.getvalue()
++
++        self.assertIn(Fore.GREEN, log_output)
++        self.assertIn(Style.RESET_ALL, log_output)
++
++    def test_custom_formatter(self):
++        formatter = ColoredFormatter()
++        record = logging.LogRecord(
++            name="test_logger",
++            level=logging.INFO,
++            pathname="",
++            lineno=0,
++            msg="Test message",
++            args=(),
++            exc_info=None,
++        )
++        formatted_record = formatter.format(record)
++
++        self.assertIn(Fore.GREEN, formatted_record)
++        self.assertIn(Style.RESET_ALL, formatted_record)
++        self.assertIn("INFO", formatted_record)
++        self.assertIn("test_logger", formatted_record)
++        self.assertIn("Test message", formatted_record)
++
++    # ... (keep other test methods unchanged)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_logger.py.old b/tests/test_logger.py.old
+new file mode 100644
+index 0000000..178b963
+--- /dev/null
++++ b/tests/test_logger.py.old
+@@ -0,0 +1,100 @@
++import logging
++import unittest
++from io import StringIO
++
++from colorama import Fore, Style
++from colored_custom_logger.logger import ColoredFormatter, CustomLogger
++
++
++class TestColoredCustomLogger(unittest.TestCase):
++    def setUp(self):
++        self.logger = CustomLogger.get_logger("test_logger")
++        self.log_capture = StringIO()
++        self.handler = logging.StreamHandler(self.log_capture)
++        self.logger.addHandler(self.handler)
++
++    def tearDown(self):
++        self.logger.removeHandler(self.handler)
++        self.log_capture.close()
++
++    def test_logger_levels(self):
++        test_messages = {
++            "debug": "Debug message",
++            "info": "Info message",
++            "warning": "Warning message",
++            "error": "Error message",
++            "critical": "Critical message",
++        }
++
++        for level, message in test_messages.items():
++            getattr(self.logger, level)(message)
++
++        log_output = self.log_capture.getvalue()
++
++        for level, message in test_messages.items():
++            self.assertIn(message, log_output)
++            self.assertIn(level.upper(), log_output)
++
++    def test_colored_output(self):
++        self.logger.info("Test colored output")
++        log_output = self.log_capture.getvalue()
++
++        self.assertIn(Fore.GREEN, log_output)
++        self.assertIn(Style.RESET_ALL, log_output)
++
++    def test_custom_formatter(self):
++        formatter = ColoredFormatter(
++            "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
++        )
++        formatted_record = formatter.format(
++            logging.LogRecord(
++                name="test_logger",
++                level=logging.INFO,
++                pathname="",
++                lineno=0,
++                msg="Test message",
++                args=(),
++                exc_info=None,
++            )
++        )
++
++        self.assertIn(Fore.GREEN, formatted_record)
++        self.assertIn(Style.RESET_ALL, formatted_record)
++        self.assertIn("INFO", formatted_record)
++        self.assertIn("test_logger", formatted_record)
++        self.assertIn("Test message", formatted_record)
++
++    def test_logger_name(self):
++        self.assertEqual(self.logger.name, "test_logger")
++
++    def test_logger_level(self):
++        self.assertEqual(self.logger.level, logging.INFO)
++
++    def test_custom_level(self):
++        custom_level_logger = CustomLogger.get_logger(
++            "custom_level_logger", level=logging.DEBUG
++        )
++        self.assertEqual(custom_level_logger.level, logging.DEBUG)
++
++    def test_no_propagate(self):
++        self.assertFalse(self.logger.propagate)
++
++    def test_formatter_style(self):
++        formatter = ColoredFormatter(
++            "%(asctime)s - %(levelname)s - %(name)s - %(message)s", style="%"
++        )
++        self.assertEqual(formatter._style.__class__, logging.PercentStyle)
++
++        formatter = ColoredFormatter(
++            "{asctime} - {levelname} - {name} - {message}", style="{"
++        )
++        self.assertEqual(formatter._style.__class__, logging.StrFormatStyle)
++
++        formatter = ColoredFormatter(
++            "$asctime - $levelname - $name - $message", style="$"
++        )
++        self.assertEqual(formatter._style.__class__, logging.StringTemplateStyle)
++
++
++if __name__ == "__main__":
++    unittest.main()
+
+Changes in commit 97202e888c362951089e7288a04dd07dbb09e676 (2024-07-27T18:10:16+09:30):
+diff --git a/DOCUMENTATION_SETUP.md b/DOCUMENTATION_SETUP.md
+index ce36eb9..3129428 100644
+--- a/DOCUMENTATION_SETUP.md
++++ b/DOCUMENTATION_SETUP.md
+@@ -97,7 +97,7 @@ mkdocs gh-deploy
+ 
+ This command builds your documentation and pushes it to a new branch called `gh-pages`.
+ 
+-2. Your documentation should now be available at `https://yourusername.github.io/colored_custom_logger/`.
++2. Your documentation should now be available at `https://robin-collins.github.io/colored_custom_logger/`.
+ 
+ ## Updating your documentation
+ 
+diff --git a/README.md b/README.md
+index 05d1408..3d6999c 100644
+--- a/README.md
++++ b/README.md
+@@ -52,7 +52,23 @@ And voilà! Your console will transform into this:
+ 
+ ![Logger Output](docs/images/basic_usage.png)
+ 
+-*Note: Replace this with an actual screenshot of your logger output*
++## Documentation
++
++Comprehensive documentation for Colored Custom Logger is available online:
++
++- **User Guide and API Reference**: [https://robin-collins.github.io/colored_custom_logger/](https://robin-collins.github.io/colored_custom_logger/)
++
++This documentation includes:
++- Installation instructions
++- Usage examples
++- API reference
++- Troubleshooting guide
++
++For developers interested in contributing to the project or setting up the documentation locally:
++
++- **Documentation Setup Guide**: See [DOCUMENTATION_SETUP.md](DOCUMENTATION_SETUP.md) in the project repository.
++
++The documentation is built using MkDocs and hosted on GitHub Pages. It is automatically updated when changes are pushed to the main branch of the repository.
+ 
+ ## 🌈 Color Scheme
+ 
+diff --git a/pyproject.toml b/pyproject.toml
+index dde1900..0d32bed 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -30,7 +30,7 @@ dependencies = [
+ [project.urls]
+ "Homepage" = "https://github.com/robin-collins/colored_custom_logger"
+ "Bug Tracker" = "https://github.com/robin-collins/colored_custom_logger/issues"
+-"Documentation" = "https://github.com/robin-collins/colored_custom_logger#readme"
++"Documentation" = "https://robin-collins.github.io/colored_custom_logger/"
+ 
+ [tool.hatch.build.targets.wheel]
+ packages = ["src/colored_custom_logger"]
+diff --git a/setup.py b/setup.py
+index 3421116..cb45141 100644
+--- a/setup.py
++++ b/setup.py
+@@ -5,4 +5,8 @@ setup(
+     version="1.5.2",
+     packages=find_packages(where="src"),
+     package_dir={"": "src"},
++    project_urls={
++        "Documentation": "https://robin-collins.github.io/colored_custom_logger/",
++        "Source": "https://github.com/robin-collins/colored_custom_logger/",
++    },
+ )
+
+Changes in commit ce9e058451ed72a3f68c6d4d1d55d84485565e24 (2024-07-27T18:20:42+09:30):
+diff --git a/DOCUMENTATION_SETUP.md b/DOCUMENTATION_SETUP.md
+index 3129428..c48d471 100644
+--- a/DOCUMENTATION_SETUP.md
++++ b/DOCUMENTATION_SETUP.md
+@@ -83,21 +83,30 @@ git push origin main
+ ## Step 7: Set up GitHub Pages
+ 
+ 1. In your GitHub repository, go to Settings > Pages.
+-2. Under "Source", select the branch you want to use for GitHub Pages (usually `main` or `master`).
+-3. Select the `/docs` folder as the source.
++2. Under "Source", select the branch `gh-pages` (create this branch if it doesn't exist)
++3. Set the folder to `/ (root)`
+ 4. Click Save.
+ 
+ ## Step 8: Build and deploy your documentation
+ 
+-1. In your local project directory, run:
++**Build your MkDocs site**:
++   - Open your terminal
++   - Navigate to your project directory
++   - Run the following command:
++     ```
++     mkdocs build
++     ```
++   - This will create a `site` directory with your built documentation
+ 
+-```bash
+-mkdocs gh-deploy
+-```
+ 
+-This command builds your documentation and pushes it to a new branch called `gh-pages`.
++**Deploy to GitHub Pages**:
++   - Still in your project directory, run:
++     ```
++     mkdocs gh-deploy
++     ```
++   - This command builds your docs and pushes them to the `gh-pages` branch
+ 
+-2. Your documentation should now be available at `https://robin-collins.github.io/colored_custom_logger/`.
++1. Your documentation should now be available at `https://robin-collins.github.io/colored_custom_logger/`.
+ 
+ ## Updating your documentation
+ 
+
+Changes in commit 7e1709da995b410c04915b0746ad849b53855fcd (2024-07-27T21:18:40+09:30):
+diff --git a/README.md b/README.md
+index 3d6999c..de7c2b5 100644
+--- a/README.md
++++ b/README.md
+@@ -20,8 +20,6 @@ Feast your eyes on these beautiful logs:
+ 
+ ![Colored Logger Demo](docs/images/showcase_example.png)
+ 
+-*Note: Replace this with an actual screenshot of your logger in action*
+-
+ ## 🚀 Installation
+ 
+ Get started with a simple pip install:
+@@ -50,7 +48,7 @@ logger.critical("🚨 MAYDAY! MAYDAY! This is critical!")
+ 
+ And voilà! Your console will transform into this:
+ 
+-![Logger Output](docs/images/basic_usage.png)
++![Logger Output](docs/images/quickstart.png)
+ 
+ ## Documentation
+ 
+@@ -86,8 +84,6 @@ Want to customize your logger further? No problem! Check out our advanced usage
+ 
+ ![Advanced Usage](docs/images/advanced_usage.png)
+ 
+-*Note: Replace this with an image showcasing advanced usage examples*
+-
+ ## 🤝 Contributing
+ 
+ We love contributions! If you have ideas for new features, improvements, or just want to report a bug, please open an issue or submit a pull request. Let's make logging colorful for everyone! 🌈
+diff --git a/docs/images/advanced_usage.png b/docs/images/advanced_usage.png
+index 7eabf2f..1cc8b3e 100644
+Binary files a/docs/images/advanced_usage.png and b/docs/images/advanced_usage.png differ
+diff --git a/docs/images/quickstart.png b/docs/images/quickstart.png
+new file mode 100644
+index 0000000..6d79bd4
+Binary files /dev/null and b/docs/images/quickstart.png differ
+diff --git a/docs/images/showcase_example.png b/docs/images/showcase_example.png
+index d611ea9..72990de 100644
+Binary files a/docs/images/showcase_example.png and b/docs/images/showcase_example.png differ
+diff --git a/examples/advanced_formatting.py b/examples/advanced_formatting.py
+new file mode 100644
+index 0000000..88cada1
+--- /dev/null
++++ b/examples/advanced_formatting.py
+@@ -0,0 +1,14 @@
++from colored_custom_logger import ColoredFormatter, CustomLogger
++
++logger = CustomLogger.get_logger(__name__)
++
++custom_formatter = ColoredFormatter(
++    fmt="%(asctime)s | %(levelname)8s | %(name)s | %(message)s",
++    datefmt="%Y-%m-%d %H:%M:%S",
++)
++
++console_handler = logger.handlers[0]
++console_handler.setFormatter(custom_formatter)
++
++logger.info("This message uses the custom format")
++logger.warning("So does this warning message")
+diff --git a/examples/context_managers.py b/examples/context_managers.py
+new file mode 100644
+index 0000000..9f9397f
+--- /dev/null
++++ b/examples/context_managers.py
+@@ -0,0 +1,24 @@
++import logging
++from contextlib import contextmanager
++
++from colored_custom_logger import CustomLogger
++
++logger = CustomLogger.get_logger(__name__, level=logging.INFO)
++
++
++@contextmanager
++def temporary_loglevel(temp_level):
++    original_level = logger.level
++    logger.setLevel(temp_level)
++    try:
++        yield
++    finally:
++        logger.setLevel(original_level)
++
++
++logger.debug("This debug message won't appear")
++
++with temporary_loglevel(logging.DEBUG):
++    logger.debug("This debug message will appear")
++
++logger.debug("This debug message won't appear again")
+diff --git a/examples/customizing_log_levels.py b/examples/customizing_log_levels.py
+new file mode 100644
+index 0000000..9eec130
+--- /dev/null
++++ b/examples/customizing_log_levels.py
+@@ -0,0 +1,12 @@
++import logging
++
++from colored_custom_logger import CustomLogger
++
++logger = CustomLogger.get_logger(__name__, level=logging.INFO)
++
++logger.debug("This debug message won't be displayed")
++logger.info("This info message will be displayed")
++logger.warning("This warning message will be displayed")
++
++logger.setLevel(logging.DEBUG)
++logger.debug("Now this debug message will be displayed")
+diff --git a/examples/integration_with_existing_projects.py b/examples/integration_with_existing_projects.py
+new file mode 100644
+index 0000000..8fe8062
+--- /dev/null
++++ b/examples/integration_with_existing_projects.py
+@@ -0,0 +1,18 @@
++import logging
++
++from colored_custom_logger import ColoredFormatter, CustomLogger
++
++logging.basicConfig(level=logging.INFO)
++
++colored_formatter = ColoredFormatter()
++
++root_logger = logging.getLogger()
++console_handler = logging.StreamHandler()
++console_handler.setFormatter(colored_formatter)
++root_logger.addHandler(console_handler)
++
++logger = logging.getLogger(__name__)
++logger.info("This message will be colored")
++
++custom_logger = CustomLogger.get_logger("custom_module")
++custom_logger.warning("This warning uses CustomLogger directly")
+diff --git a/examples/logging_to_files.py b/examples/logging_to_files.py
+new file mode 100644
+index 0000000..b54f2a3
+--- /dev/null
++++ b/examples/logging_to_files.py
+@@ -0,0 +1,18 @@
++import logging
++
++from colored_custom_logger import CustomLogger
++
++logger = CustomLogger.get_logger(__name__)
++
++file_handler = logging.FileHandler("app.log")
++file_handler.setLevel(logging.DEBUG)
++
++file_formatter = logging.Formatter(
++    "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
++)
++file_handler.setFormatter(file_formatter)
++
++logger.addHandler(file_handler)
++
++logger.debug("This message will go to both console and file")
++logger.info("So will this info message")
+diff --git a/examples/multiple_loggers.py b/examples/multiple_loggers.py
+new file mode 100644
+index 0000000..f7c9d91
+--- /dev/null
++++ b/examples/multiple_loggers.py
+@@ -0,0 +1,9 @@
++from colored_custom_logger import CustomLogger
++
++main_logger = CustomLogger.get_logger("main")
++db_logger = CustomLogger.get_logger("database")
++api_logger = CustomLogger.get_logger("api")
++
++main_logger.info("Application starting")
++db_logger.debug("Connecting to database")
++api_logger.warning("API rate limit approaching")
+diff --git a/examples/ss_quickstart.py b/examples/ss_quickstart.py
+new file mode 100644
+index 0000000..05ac20a
+--- /dev/null
++++ b/examples/ss_quickstart.py
+@@ -0,0 +1,11 @@
++from colored_custom_logger import CustomLogger
++
++# Create your fabulous logger
++logger = CustomLogger.get_logger(__name__)
++
++# Let the colorful logging begin!
++logger.debug("🔍 This is a debug message")
++logger.info("ℹ️ Here's some info for you")
++logger.warning("⚠️ Uh-oh, this is a warning")
++logger.error("❌ Oops! We've got an error")
++logger.critical("🚨 MAYDAY! MAYDAY! This is critical!")
+diff --git a/examples/using_custom_colors.py b/examples/using_custom_colors.py
+new file mode 100644
+index 0000000..6a88c4e
+--- /dev/null
++++ b/examples/using_custom_colors.py
+@@ -0,0 +1,8 @@
++from colorama import Back, Fore, Style
++from colored_custom_logger import CustomLogger
++
++logger = CustomLogger.get_logger(__name__)
++
++logger.info(f"This message has {Fore.BLUE}blue text{Style.RESET_ALL}")
++logger.warning(f"This is a {Fore.MAGENTA}magenta warning{Style.RESET_ALL}")
++logger.error(f"Error! {Back.WHITE}{Fore.RED}Something went wrong!{Style.RESET_ALL}")
+diff --git a/pyproject.toml b/pyproject.toml
+index 0d32bed..80079f4 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
+ 
+ [project]
+ name = "colored_custom_logger"
+-version = "1.5.2"
++version = "1.5.3"
+ authors = [
+   { name = "Robin Collins", email = "robin@blackcat-it.com.au" },
+ ]
+diff --git a/requirements.txt b/requirements.txt
+index e69de29..38b13da 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -0,0 +1,54 @@
++bleach==6.0.0
++build==1.1.1
++certifi==2024.7.4
++cffi==1.15.1
++charset-normalizer==3.3.2
++click==8.1.7
++colorama==0.4.6
++-e git+https://github.com/robin-collins/colored_custom_logger.git@ce9e058451ed72a3f68c6d4d1d55d84485565e24#egg=colored_custom_logger
++cryptography==43.0.0
++docutils==0.20.1
++exceptiongroup==1.2.2
++ghp-import==2.1.0
++idna==3.7
++importlib-metadata==6.7.0
++importlib-resources==5.12.0
++iniconfig==2.0.0
++jaraco.classes==3.2.3
++jeepney==0.8.0
++Jinja2==3.1.4
++keyring==24.1.1
++Markdown==3.4.4
++markdown-it-py==2.2.0
++MarkupSafe==2.1.5
++mdurl==0.1.2
++mergedeep==1.3.4
++mkdocs==1.5.3
++more-itertools==9.1.0
++packaging==24.0
++pathspec==0.11.2
++pkginfo==1.10.0
++platformdirs==4.0.0
++pluggy==1.2.0
++pycparser==2.21
++Pygments==2.17.2
++pyproject_hooks==1.1.0
++pytest==7.4.4
++python-dateutil==2.9.0.post0
++PyYAML==6.0.1
++pyyaml_env_tag==0.1
++readme-renderer==37.3
++requests==2.31.0
++requests-toolbelt==1.0.0
++rfc3986==2.0.0
++rich==13.7.1
++ruff==0.5.5
++SecretStorage==3.3.3
++six==1.16.0
++tomli==2.0.1
++twine==4.0.2
++typing_extensions==4.7.1
++urllib3==2.0.7
++watchdog==3.0.0
++webencodings==0.5.1
++zipp==3.15.0
+diff --git a/setup.py b/setup.py
+index cb45141..afa1b69 100644
+--- a/setup.py
++++ b/setup.py
+@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
+ 
+ setup(
+     name="colored_custom_logger",
+-    version="1.5.2",
++    version="1.5.3",
+     packages=find_packages(where="src"),
+     package_dir={"": "src"},
+     project_urls={
+diff --git a/src/colored_custom_logger/logger.py b/src/colored_custom_logger/logger.py
+index 2ee75bd..f2d0754 100644
+--- a/src/colored_custom_logger/logger.py
++++ b/src/colored_custom_logger/logger.py
+@@ -4,7 +4,7 @@ logger.py - A module for setting up consistent, partially colorful logging acros
+ This module provides a CustomLogger class that can be used directly for logging with colorful date
+ and log level, while leaving the rest of the output in plain text.
+ 
+-Version: 1.5.2
++Version: 1.5.3
+ """
+ 
+ import logging
+@@ -37,7 +37,7 @@ class ColoredFormatter(logging.Formatter):
+         "INFO": Fore.GREEN,
+         "WARNING": Fore.YELLOW,
+         "ERROR": Fore.RED,
+-        "CRITICAL": Fore.RED + Style.BRIGHT,
++        "CRITICAL": Fore.LIGHTRED_EX,
+     }
+ 
+     def __init__(self, fmt=None, datefmt=None, style="%"):
+
+Changes in commit bb2a8f835758dcc8d93ca8e9a74d444a4358e427 (2024-07-30T09:30:39+09:30):
+diff --git a/docs/images/advanced_formatting.png b/docs/images/advanced_formatting.png
+new file mode 100644
+index 0000000..8e214ac
+Binary files /dev/null and b/docs/images/advanced_formatting.png differ
+diff --git a/docs/images/basic_usage.png b/docs/images/basic_usage.png
+index f7a1222..55c271a 100644
+Binary files a/docs/images/basic_usage.png and b/docs/images/basic_usage.png differ
+diff --git a/docs/images/customizing_log_levels.png b/docs/images/customizing_log_levels.png
+new file mode 100644
+index 0000000..b43b962
+Binary files /dev/null and b/docs/images/customizing_log_levels.png differ
+diff --git a/docs/images/integration_with_existing_projects.png b/docs/images/integration_with_existing_projects.png
+new file mode 100644
+index 0000000..3ff4f13
+Binary files /dev/null and b/docs/images/integration_with_existing_projects.png differ
+diff --git a/docs/images/logging_to_files.png b/docs/images/logging_to_files.png
+new file mode 100644
+index 0000000..fdd6816
+Binary files /dev/null and b/docs/images/logging_to_files.png differ
+diff --git a/docs/images/multiple_loggers.png b/docs/images/multiple_loggers.png
+new file mode 100644
+index 0000000..1e84655
+Binary files /dev/null and b/docs/images/multiple_loggers.png differ
+diff --git a/docs/images/ss_advanced_usage.png b/docs/images/ss_advanced_usage.png
+new file mode 100644
+index 0000000..30ab10a
+Binary files /dev/null and b/docs/images/ss_advanced_usage.png differ
+diff --git a/docs/images/ss_basic_usage.png b/docs/images/ss_basic_usage.png
+new file mode 100644
+index 0000000..89addde
+Binary files /dev/null and b/docs/images/ss_basic_usage.png differ
+diff --git a/docs/images/ss_custom_color_example.png b/docs/images/ss_custom_color_example.png
+new file mode 100644
+index 0000000..b187d73
+Binary files /dev/null and b/docs/images/ss_custom_color_example.png differ
+diff --git a/docs/images/ss_exception_logging_example.png b/docs/images/ss_exception_logging_example.png
+new file mode 100644
+index 0000000..6152b06
+Binary files /dev/null and b/docs/images/ss_exception_logging_example.png differ
+diff --git a/docs/images/ss_multiple_loggers_example.png b/docs/images/ss_multiple_loggers_example.png
+new file mode 100644
+index 0000000..927858b
+Binary files /dev/null and b/docs/images/ss_multiple_loggers_example.png differ
+diff --git a/docs/images/ss_quickstart.png b/docs/images/ss_quickstart.png
+new file mode 100644
+index 0000000..bf30e00
+Binary files /dev/null and b/docs/images/ss_quickstart.png differ
+diff --git a/docs/images/ss_showcase_example.png b/docs/images/ss_showcase_example.png
+new file mode 100644
+index 0000000..4381816
+Binary files /dev/null and b/docs/images/ss_showcase_example.png differ
+diff --git a/docs/images/using_custom_colors.png b/docs/images/using_custom_colors.png
+new file mode 100644
+index 0000000..b913888
+Binary files /dev/null and b/docs/images/using_custom_colors.png differ
+diff --git a/docs/usage.md b/docs/usage.md
+index aa1707d..84aa10f 100644
+--- a/docs/usage.md
++++ b/docs/usage.md
+@@ -12,7 +12,6 @@ This guide provides comprehensive examples of how to use the `colored_custom_log
+   - [Multiple Loggers](#multiple-loggers)
+   - [Logging to Files](#logging-to-files)
+   - [Advanced Formatting](#advanced-formatting)
+-  - [Context Managers](#context-managers)
+   - [Integration with Existing Projects](#integration-with-existing-projects)
+ 
+ ## Basic Usage
+@@ -43,7 +42,7 @@ logger.critical("This is a critical message")
+ 
+ Here's how the output might look:
+ 
+-[SCREENSHOT_PLACEHOLDER: basic_usage.png]
++[![basic_usage.png](./images/basic_usage.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/basic_usage.py)
+ 
+ ## Customizing Log Levels
+ 
+@@ -67,7 +66,9 @@ logger.setLevel(logging.DEBUG)
+ logger.debug("Now this debug message will be displayed")
+ ```
+ 
+-[SCREENSHOT_PLACEHOLDER: custom_log_levels.png]
++
++
++[![custom_log_levels.png](./images/customizing_log_levels.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/customizing_log_levels.py)
+ 
+ ## Using Custom Colors
+ 
+@@ -84,7 +85,7 @@ logger.warning(f"This is a {Fore.MAGENTA}magenta warning{Style.RESET_ALL}")
+ logger.error(f"Error! {Back.WHITE}{Fore.RED}Something went wrong!{Style.RESET_ALL}")
+ ```
+ 
+-[SCREENSHOT_PLACEHOLDER: custom_colors.png]
++[![custom_colors.png](./images/custom_color_example.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/ss_custom_color_example.py)
+ 
+ ## Multiple Loggers
+ 
+@@ -100,7 +101,7 @@ db_logger.debug("Connecting to database")
+ api_logger.warning("API rate limit approaching")
+ ```
+ 
+-[SCREENSHOT_PLACEHOLDER: multiple_loggers.png]
++[![multiple_loggers.png](./images/ss_multiple_loggers_example.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/ss_multiple_loggers_example.py)
+ 
+ ## Logging to Files
+ 
+@@ -127,7 +128,7 @@ logger.debug("This message will go to both console and file")
+ logger.info("So will this info message")
+ ```
+ 
+-[SCREENSHOT_PLACEHOLDER: file_logging.png]
++[![file_logging.png](./images/logging_to_files.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/logging_to_files.py)
+ 
+ ## Advanced Formatting
+ 
+@@ -152,37 +153,7 @@ logger.info("This message uses the custom format")
+ logger.warning("So does this warning message")
+ ```
+ 
+-[SCREENSHOT_PLACEHOLDER: advanced_formatting.png]
+-
+-## Context Managers
+-
+-You can use context managers to temporarily change logging behavior:
+-
+-```python
+-from colored_custom_logger import CustomLogger
+-import logging
+-from contextlib import contextmanager
+-
+-logger = CustomLogger.get_logger(__name__, level=logging.INFO)
+-
+-@contextmanager
+-def temporary_loglevel(temp_level):
+-    original_level = logger.level
+-    logger.setLevel(temp_level)
+-    try:
+-        yield
+-    finally:
+-        logger.setLevel(original_level)
+-
+-logger.debug("This debug message won't appear")
+-
+-with temporary_loglevel(logging.DEBUG):
+-    logger.debug("This debug message will appear")
+-
+-logger.debug("This debug message won't appear again")
+-```
+-
+-[SCREENSHOT_PLACEHOLDER: context_managers.png]
++[![advanced_formatting.png](./images/advanced_formatting.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/advanced_formatting.py)
+ 
+ ## Integration with Existing Projects
+ 
+@@ -213,7 +184,7 @@ custom_logger = CustomLogger.get_logger("custom_module")
+ custom_logger.warning("This warning uses CustomLogger directly")
+ ```
+ 
+-[SCREENSHOT_PLACEHOLDER: integration.png]
++[![integration.png](./images/integration_with_existing_projects.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/integration_with_existing_projects.py)
+ 
+ By following these examples, you should be able to make full use of the `colored_custom_logger` in your Python projects. Remember to adjust the log levels and formats to best suit your specific needs.
+ 
+diff --git a/src/colored_custom_logger/logger.py b/src/colored_custom_logger/logger.py
+index f2d0754..743192e 100644
+--- a/src/colored_custom_logger/logger.py
++++ b/src/colored_custom_logger/logger.py
+@@ -8,6 +8,7 @@ Version: 1.5.3
+ """
+ 
+ import logging
++import sys
+ 
+ from colorama import Fore, Style, init
+ 
+@@ -139,7 +140,7 @@ class CustomLogger(logging.Logger):
+             self.removeHandler(handler)
+ 
+         # Create console handler and set level to debug
+-        console_handler = logging.StreamHandler()
++        console_handler = logging.StreamHandler(sys.stdout)
+         console_handler.setLevel(logging.DEBUG)
+ 
+         # Create formatter
+
+Changes in commit 5c34e0cd3c83fe1953e21fcee6467d0c522f3738 (2024-07-30T11:18:52+09:30):
+diff --git a/pyproject.toml b/pyproject.toml
+index 80079f4..158b4c7 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
+ 
+ [project]
+ name = "colored_custom_logger"
+-version = "1.5.3"
++version = "1.5.4"
+ authors = [
+   { name = "Robin Collins", email = "robin@blackcat-it.com.au" },
+ ]
+diff --git a/requirements.txt b/requirements.txt
+index 38b13da..7ff4403 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -5,7 +5,7 @@ cffi==1.15.1
+ charset-normalizer==3.3.2
+ click==8.1.7
+ colorama==0.4.6
+--e git+https://github.com/robin-collins/colored_custom_logger.git@ce9e058451ed72a3f68c6d4d1d55d84485565e24#egg=colored_custom_logger
++-e git+https://github.com/robin-collins/colored_custom_logger.git@bb2a8f835758dcc8d93ca8e9a74d444a4358e427#egg=colored_custom_logger
+ cryptography==43.0.0
+ docutils==0.20.1
+ exceptiongroup==1.2.2
+@@ -45,6 +45,7 @@ rich==13.7.1
+ ruff==0.5.5
+ SecretStorage==3.3.3
+ six==1.16.0
++toml==0.10.2
+ tomli==2.0.1
+ twine==4.0.2
+ typing_extensions==4.7.1
+diff --git a/setup.py b/setup.py
+index afa1b69..6672072 100644
+--- a/setup.py
++++ b/setup.py
+@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
+ 
+ setup(
+     name="colored_custom_logger",
+-    version="1.5.3",
++    version="1.5.4",
+     packages=find_packages(where="src"),
+     package_dir={"": "src"},
+     project_urls={
+diff --git a/src/colored_custom_logger/logger.py b/src/colored_custom_logger/logger.py
+index 743192e..a95568a 100644
+--- a/src/colored_custom_logger/logger.py
++++ b/src/colored_custom_logger/logger.py
+@@ -4,7 +4,7 @@ logger.py - A module for setting up consistent, partially colorful logging acros
+ This module provides a CustomLogger class that can be used directly for logging with colorful date
+ and log level, while leaving the rest of the output in plain text.
+ 
+-Version: 1.5.3
++Version: 1.5.4
+ """
+ 
+ import logging
+diff --git a/utils/sync_build_publish.sh b/utils/sync_build_publish.sh
+new file mode 100755
+index 0000000..70ceec3
+--- /dev/null
++++ b/utils/sync_build_publish.sh
+@@ -0,0 +1,104 @@
++#!/bin/bash
++
++check_and_activate_pyenv_ccl() {
++    # Check if the pyenv ccl is already active
++    if [[ "$(pyenv version-name)" == "ccl" ]]; then
++        echo 'pyenv ccl is already active'
++        return 0
++    else
++        echo 'activating pyenv ccl'
++        pyenv activate ccl
++        return $?
++    fi
++}
++
++build_python_package() {
++    local package_dir="${1:?Package directory must be provided}"
++    local build_output
++    local build_status
++
++    # Change to the package directory
++    if ! cd "${package_dir}"; then
++        echo "Error: Unable to change to directory ${package_dir}" >&2
++        return 1
++    fi
++
++    # Ensure the directory contains a pyproject.toml or setup.py file
++    if [[ ! -f "pyproject.toml" && ! -f "setup.py" ]]; then
++        echo "Error: Neither pyproject.toml nor setup.py found in ${package_dir}" >&2
++        return 1
++    fi
++
++    # Clean up any existing build artifacts
++    echo "Cleaning up existing build artifacts..."
++    rm -rf build dist *.egg-info
++
++    # Build the package
++    echo "Building the Python package..."
++    build_output=$(python -m build 2>&1)
++    build_status=$?
++
++    if [[ ${build_status} -ne 0 ]]; then
++        echo "Error: Package build failed" >&2
++        echo "Build output:" >&2
++        echo "${build_output}" >&2
++        return ${build_status}
++    fi
++
++    # Check if the build was successful
++    if [[ -d "dist" && "$(ls -A dist)" ]]; then
++        echo "Package built successfully"
++        echo "Built artifacts:"
++        ls -l dist
++    else
++        echo "Error: No distribution files found after build" >&2
++        return 1
++    fi
++
++    return 0
++}
++
++# Usage example:
++# build_python_package "/path/to/your/package"
++#
++# Check the return status
++# if [[ $? -eq 0 ]]; then
++#     echo "Build successful"
++# else
++#     echo "Build failed"
++# fi
++
++upload_to_pypi() {
++  twine upload dist/*
++}
++
++main() {
++  CURRENT_DIR=$(pwd)
++  SCRIPT_DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
++  PROJECT_DIR=$(cd -- "${SCRIPT_DIR}/.." &>/dev/null && pwd)
++
++  # change to PROJECT_DIR
++  cd "${PROJECT_DIR}" || exit
++  
++  check_and_activate_pyenv_ccl;
++  python utils/sync_versions.py
++  # check that the last command exited successfully
++  if [ $? -ne 0 ]; then
++      echo 'sync_versions.py failed'
++      exit 1
++  else
++      echo 'sync_versions.py succeeded'
++      build_python_package "${PROJECT_DIR}"
++      # Check the return status
++      if [[ $? -eq 0 ]]; then
++          echo "Build successful"
++          upload_to_pypi
++      else
++          echo "Build failed"
++      fi
++  fi
++  
++}
++
++main;
++
+diff --git a/utils/sync_versions.py b/utils/sync_versions.py
+new file mode 100644
+index 0000000..83bf771
+--- /dev/null
++++ b/utils/sync_versions.py
+@@ -0,0 +1,99 @@
++"""
++version_sync.py
++
++This script synchronizes the version numbers in setup.py and pyproject.toml
++with the version specified in src/colored_custom_logger/logger.py.
++
++Version: 1.0.0
++"""
++
++import logging
++import re
++import sys
++
++# Set up logging
++logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
++logger = logging.getLogger(__name__)
++
++
++def read_version_from_logger():
++    """Read the version from src/colored_custom_logger/logger.py."""
++    try:
++        with open("src/colored_custom_logger/logger.py", "r", encoding="utf-8") as f:
++            content = f.read()
++            match = re.search(r"Version:\s*(\d+\.\d+\.\d+)", content)
++            if match:
++                return match.group(1)
++            else:
++                logger.error("Version not found in logger.py")
++                return None
++    except FileNotFoundError:
++        logger.error("logger.py not found in src/colored_custom_logger/")
++        return None
++    except IOError as e:
++        logger.error(f"Error reading logger.py: {e}")
++        return None
++
++
++def update_setup_py(version):
++    """Update the version in setup.py."""
++    try:
++        with open("setup.py", "r", encoding="utf-8") as f:
++            content = f.read()
++
++        pattern = r'(version\s*=\s*["\'])(\d+\.\d+\.\d+)(["\'])'
++        if re.search(pattern, content):
++            updated_content = re.sub(
++                pattern, lambda m: f"{m.group(1)}{version}{m.group(3)}", content
++            )
++
++            with open("setup.py", "w", encoding="utf-8") as f:
++                f.write(updated_content)
++
++            logger.info(f"Updated version in setup.py to {version}")
++        else:
++            logger.error("Version pattern not found in setup.py")
++    except FileNotFoundError:
++        logger.error("setup.py not found")
++    except IOError as e:
++        logger.error(f"Error updating setup.py: {e}")
++
++
++def update_pyproject_toml(version):
++    """Update the version in pyproject.toml."""
++    try:
++        with open("pyproject.toml", "r", encoding="utf-8") as f:
++            content = f.read()
++
++        pattern = r'(version\s*=\s*["\'])(\d+\.\d+\.\d+)(["\'])'
++        if re.search(pattern, content):
++            updated_content = re.sub(
++                pattern, lambda m: f"{m.group(1)}{version}{m.group(3)}", content
++            )
++
++            with open("pyproject.toml", "w", encoding="utf-8") as f:
++                f.write(updated_content)
++
++            logger.info(f"Updated version in pyproject.toml to {version}")
++        else:
++            logger.error("Version pattern not found in pyproject.toml")
++    except FileNotFoundError:
++        logger.error("pyproject.toml not found")
++    except IOError as e:
++        logger.error(f"Error updating pyproject.toml: {e}")
++
++
++def main():
++    """Main function to synchronize versions."""
++    version = read_version_from_logger()
++    if version:
++        print("Found Version:", version)
++        update_setup_py(version)
++        update_pyproject_toml(version)
++    else:
++        logger.error("Failed to synchronize versions due to errors.")
++        sys.exit(1)
++
++
++if __name__ == "__main__":
++    main()
+
+Changes in commit a66d1358c498214a73cb8db48e5c0eea4e317ac1 (2024-09-08T20:57:24+09:30):
+diff --git a/CHAGELOG.md b/CHAGELOG.md
+new file mode 100644
+index 0000000..643c517
+--- /dev/null
++++ b/CHAGELOG.md
+@@ -0,0 +1,33 @@
++# 🌈 Changelog
++
++All notable changes to this project will be documented in this fabulous file! 🎉
++
++## [1.5.5] - 2023-XX-XX 🚀
++
++### 🎨 Added
++- ✨ Magical ability to set a default logging level for all CustomLogger instances
++- 🔧 Fancy option to set a specific logging level when instantiating a logger
++
++### 🔄 Changed
++- 🧪 Supercharged unit tests to cover new functionality
++- 🔢 Improved version synchronization across project files (we're all in sync now!)
++
++### 🐛 Fixed
++- 🚀 Minor bug fixes and performance improvements (we squashed those pesky bugs!)
++
++## [1.5.4] - 2023-XX-XX 🎈
++
++### 🎉 Added
++- 🌈 Even more vibrant colors to make your logs pop!
++- 🚀 Rocket-fast performance improvements
++
++### 🔧 Changed
++- 📚 Updated documentation to be more fun and engaging
++- 🎭 Enhanced error messages with a touch of humor
++
++### 🛠️ Fixed
++- 🐛 Squashed a bug that was eating your debug messages for breakfast
++
++---
++
++Remember, life's too short for boring changelogs! Keep logging and stay colorful! 🌈🎨🎭
+diff --git a/README.md b/README.md
+index de7c2b5..4536c8a 100644
+--- a/README.md
++++ b/README.md
+@@ -86,11 +86,11 @@ Want to customize your logger further? No problem! Check out our advanced usage
+ 
+ ## 🤝 Contributing
+ 
+-We love contributions! If you have ideas for new features, improvements, or just want to report a bug, please open an issue or submit a pull request. Let's make logging colorful for everyone! 🌈
++Contributions are welcome! Please feel free to submit a Pull Request.
+ 
+ ## 📜 License
+ 
+-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
++This project is licensed under the MIT License - see the LICENSE file for details.
+ 
+ ## 🙏 Acknowledgements
+ 
+diff --git a/docs/api.md b/docs/api.md
+index bbafe77..4e2045e 100644
+--- a/docs/api.md
++++ b/docs/api.md
+@@ -2,6 +2,8 @@
+ 
+ This document provides a detailed reference for all public classes, methods, and attributes in the `colored_custom_logger` module.
+ 
++Version: 1.5.5
++
+ ## Table of Contents
+ 
+ 1. [CustomLogger](#customlogger)
+@@ -16,7 +18,9 @@ This document provides a detailed reference for all public classes, methods, and
+ 
+ ```python
+ class CustomLogger(logging.Logger):
+-    def __init__(self, name: str, level: int = logging.DEBUG)
++    _default_level = logging.DEBUG
++
++    def __init__(self, name: str, level: int = None)
+ ```
+ 
+ ### Class Methods
+@@ -25,14 +29,14 @@ class CustomLogger(logging.Logger):
+ 
+ ```python
+ @classmethod
+-def get_logger(cls, name: str, level: int = logging.DEBUG) -> CustomLogger
++def get_logger(cls, name: str, level: int = None) -> CustomLogger
+ ```
+ 
+ Creates and returns a `CustomLogger` instance.
+ 
+ **Parameters:**
+ - `name` (str): The name of the logger.
+-- `level` (int, optional): The logging level. Defaults to `logging.DEBUG`.
++- `level` (int, optional): The logging level. If None, uses the default level.
+ 
+ **Returns:**
+ - `CustomLogger`: An instance of the CustomLogger.
+@@ -42,6 +46,23 @@ Creates and returns a `CustomLogger` instance.
+ logger = CustomLogger.get_logger("my_app")
+ ```
+ 
++#### `set_default_level`
++
++```python
++@classmethod
++def set_default_level(cls, level: int) -> None
++```
++
++Sets the default logging level for all CustomLogger instances.
++
++**Parameters:**
++- `level` (int): The logging level to set as default.
++
++**Example:**
++```python
++CustomLogger.set_default_level(logging.INFO)
++```
++
+ ### Instance Methods
+ 
+ #### `setup_logger`
+@@ -140,14 +161,14 @@ formatted_message = formatter.format(log_record)
+ ### `init_logger`
+ 
+ ```python
+-def init_logger(name: str, level: int = logging.DEBUG) -> CustomLogger
++def init_logger(name: str, level: int = None) -> CustomLogger
+ ```
+ 
+ A convenience function to initialize and return a `CustomLogger`.
+ 
+ **Parameters:**
+ - `name` (str): The name of the logger.
+-- `level` (int, optional): The logging level. Defaults to `logging.DEBUG`.
++- `level` (int, optional): The logging level. If None, uses the default level set by `set_default_level`.
+ 
+ **Returns:**
+ - `CustomLogger`: An initialized CustomLogger instance.
+diff --git a/docs/usage.md b/docs/usage.md
+index 84aa10f..4a5beda 100644
+--- a/docs/usage.md
++++ b/docs/usage.md
+@@ -66,9 +66,28 @@ logger.setLevel(logging.DEBUG)
+ logger.debug("Now this debug message will be displayed")
+ ```
+ 
++## Setting Default Log Level
+ 
++You can set a default log level for all CustomLogger instances:
+ 
+-[![custom_log_levels.png](./images/customizing_log_levels.png)Link to github example](https://github.com/robin-collins/colored_custom_logger/blob/main/examples/customizing_log_levels.py)
++```python
++import logging
++from colored_custom_logger import CustomLogger
++
++CustomLogger.set_default_level(logging.INFO)
++
++# This logger will have INFO level by default
++logger1 = CustomLogger.get_logger("logger1")
++
++# This logger will override the default and use DEBUG level
++logger2 = CustomLogger.get_logger("logger2", logging.DEBUG)
++
++logger1.debug("This debug message won't be displayed")
++logger1.info("This info message will be displayed")
++logger2.debug("This debug message will be displayed")
++```
++
++This feature allows you to easily manage the log level across your entire application.
+ 
+ ## Using Custom Colors
+ 
+diff --git a/pyproject.toml b/pyproject.toml
+index 158b4c7..ffee0b9 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
+ 
+ [project]
+ name = "colored_custom_logger"
+-version = "1.5.4"
++version = "1.5.5"
+ authors = [
+   { name = "Robin Collins", email = "robin@blackcat-it.com.au" },
+ ]
+diff --git a/setup.py b/setup.py
+index 6672072..31f0d79 100644
+--- a/setup.py
++++ b/setup.py
+@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
+ 
+ setup(
+     name="colored_custom_logger",
+-    version="1.5.4",
++    version="1.5.5",
+     packages=find_packages(where="src"),
+     package_dir={"": "src"},
+     project_urls={
+diff --git a/src/colored_custom_logger/logger.py b/src/colored_custom_logger/logger.py
+index a95568a..5ae5f39 100644
+--- a/src/colored_custom_logger/logger.py
++++ b/src/colored_custom_logger/logger.py
+@@ -4,7 +4,7 @@ logger.py - A module for setting up consistent, partially colorful logging acros
+ This module provides a CustomLogger class that can be used directly for logging with colorful date
+ and log level, while leaving the rest of the output in plain text.
+ 
+-Version: 1.5.4
++Version: 1.5.5
+ """
+ 
+ import logging
+@@ -106,20 +106,17 @@ class ColoredFormatter(logging.Formatter):
+ 
+ 
+ class CustomLogger(logging.Logger):
+-    """
+-    A custom logger class that extends the standard logging.Logger.
+-
+-    This logger is configured with a colored formatter and console handler.
+-    """
++    _default_level = logging.DEBUG
+ 
+-    def __init__(self, name: str, level: int = logging.DEBUG):
++    def __init__(self, name: str, level: int = None):
+         """
+         Initialize the CustomLogger.
+ 
+         Args:
+             name (str): The name of the logger.
+-            level (int): The logging level. Defaults to logging.INFO.
++            level (int, optional): The logging level. If None, uses the default level.
+         """
++        level = level if level is not None else self._default_level
+         super().__init__(name, level)
+         self.setup_logger()
+ 
+@@ -158,15 +155,28 @@ class CustomLogger(logging.Logger):
+         self.propagate = False
+ 
+     @classmethod
+-    def get_logger(cls, name: str, level: int = logging.DEBUG):
++    def get_logger(cls, name: str, level: int = None):
+         """
+         Get a CustomLogger instance.
+ 
+         Args:
+             name (str): The name of the logger.
+-            level (int): The logging level. Defaults to logging.INFO.
++            level (int, optional): The logging level. If None, uses the default level.
+ 
+         Returns:
+             CustomLogger: A configured logger instance.
+         """
+         return cls(name, level)
++
++    @classmethod
++    def set_default_level(cls, level):
++        """
++        Set the default logging level for all CustomLogger instances.
++
++        Args:
++            level: The logging level to set as default.
++        """        
++        cls._default_level = level
++        cls_logger = cls.get_logger(__name__)
++        cls_logger.info("Default logging level set to %s", 
++                        logging.getLevelName(level) if isinstance(level, int) else level)
+diff --git a/tests/test_logger.py b/tests/test_logger.py
+index 13298c1..dca09c2 100644
+--- a/tests/test_logger.py
++++ b/tests/test_logger.py
+@@ -3,7 +3,7 @@ import unittest
+ from io import StringIO
+ 
+ from colorama import Fore, Style
+-from colored_custom_logger.logger import ColoredFormatter, CustomLogger
++from colored_custom_logger import CustomLogger, ColoredFormatter
+ 
+ 
+ class TestColoredCustomLogger(unittest.TestCase):
+@@ -62,8 +62,88 @@ class TestColoredCustomLogger(unittest.TestCase):
+         self.assertIn("test_logger", formatted_record)
+         self.assertIn("Test message", formatted_record)
+ 
+-    # ... (keep other test methods unchanged)
++    def test_set_default_level(self):
++        CustomLogger.set_default_level(logging.WARNING)
++        new_logger = CustomLogger.get_logger("new_test_logger")
++        self.assertEqual(new_logger.level, logging.WARNING)
+ 
++        # Reset default level to DEBUG for other tests
++        CustomLogger.set_default_level(logging.DEBUG)
++
++    def test_get_logger_with_specific_level(self):
++        info_logger = CustomLogger.get_logger("info_logger", logging.INFO)
++        self.assertEqual(info_logger.level, logging.INFO)
++
++        debug_logger = CustomLogger.get_logger("debug_logger", logging.DEBUG)
++        self.assertEqual(debug_logger.level, logging.DEBUG)
++
++    def test_multiple_loggers_with_different_levels(self):
++        CustomLogger.set_default_level(logging.INFO)
++        
++        info_logger = CustomLogger.get_logger("info_logger")
++        debug_logger = CustomLogger.get_logger("debug_logger", logging.DEBUG)
++        warning_logger = CustomLogger.get_logger("warning_logger", logging.WARNING)
++
++        self.assertEqual(info_logger.level, logging.INFO)
++        self.assertEqual(debug_logger.level, logging.DEBUG)
++        self.assertEqual(warning_logger.level, logging.WARNING)
++
++        # Reset default level to DEBUG for other tests
++        CustomLogger.set_default_level(logging.DEBUG)
++
++    def test_lazy_formatting(self):
++        test_value = "lazy"
++        self.logger.info("This is a %s formatted log message", test_value)
++        log_output = self.log_capture.getvalue()
++        self.assertIn("This is a lazy formatted log message", log_output)
++
++    def test_change_log_level_dynamically(self):
++        logger = CustomLogger.get_logger("dynamic_level_logger", logging.INFO)
++        self.assertEqual(logger.level, logging.INFO)
++        logger.setLevel(logging.DEBUG)
++        self.assertEqual(logger.level, logging.DEBUG)
++
++    def test_multiple_handlers(self):
++        logger = CustomLogger.get_logger("multi_handler_logger")
++        file_handler = logging.FileHandler("test.log")
++        logger.addHandler(file_handler)
++        self.assertEqual(len(logger.handlers), 2)
++        logger.removeHandler(file_handler)
++
++    def test_logger_name(self):
++        logger_name = "test_name_logger"
++        logger = CustomLogger.get_logger(logger_name)
++        self.assertEqual(logger.name, logger_name)
++
++    def test_logger_propagation(self):
++        logger = CustomLogger.get_logger("propagation_logger")
++        self.assertFalse(logger.propagate)
++
++    def test_exception_logging(self):
++        try:
++            raise ValueError("Test exception")
++        except ValueError:
++            self.logger.exception("An error occurred")
++        log_output = self.log_capture.getvalue()
++        self.assertIn("An error occurred", log_output)
++        self.assertIn("ValueError: Test exception", log_output)
++        self.assertIn("Traceback (most recent call last):", log_output)
++
++    def test_custom_log_levels(self):
++        CUSTOM_LEVEL = 25
++        logging.addLevelName(CUSTOM_LEVEL, "CUSTOM")
++        self.logger.log(CUSTOM_LEVEL, "Custom level message")
++        log_output = self.log_capture.getvalue()
++        self.assertIn("CUSTOM", log_output)
++        self.assertIn("Custom level message", log_output)
++
++    def test_default_level_persistence(self):
++        CustomLogger.set_default_level(logging.WARNING)
++        logger1 = CustomLogger.get_logger("logger1")
++        logger2 = CustomLogger.get_logger("logger2")
++        self.assertEqual(logger1.level, logging.WARNING)
++        self.assertEqual(logger2.level, logging.WARNING)
++        CustomLogger.set_default_level(logging.DEBUG)  # Reset for other tests
+ 
+ if __name__ == "__main__":
+     unittest.main()
+diff --git a/tests/test_logger.py.old b/tests/test_logger.py.old
+deleted file mode 100644
+index 178b963..0000000
+--- a/tests/test_logger.py.old
++++ /dev/null
+@@ -1,100 +0,0 @@
+-import logging
+-import unittest
+-from io import StringIO
+-
+-from colorama import Fore, Style
+-from colored_custom_logger.logger import ColoredFormatter, CustomLogger
+-
+-
+-class TestColoredCustomLogger(unittest.TestCase):
+-    def setUp(self):
+-        self.logger = CustomLogger.get_logger("test_logger")
+-        self.log_capture = StringIO()
+-        self.handler = logging.StreamHandler(self.log_capture)
+-        self.logger.addHandler(self.handler)
+-
+-    def tearDown(self):
+-        self.logger.removeHandler(self.handler)
+-        self.log_capture.close()
+-
+-    def test_logger_levels(self):
+-        test_messages = {
+-            "debug": "Debug message",
+-            "info": "Info message",
+-            "warning": "Warning message",
+-            "error": "Error message",
+-            "critical": "Critical message",
+-        }
+-
+-        for level, message in test_messages.items():
+-            getattr(self.logger, level)(message)
+-
+-        log_output = self.log_capture.getvalue()
+-
+-        for level, message in test_messages.items():
+-            self.assertIn(message, log_output)
+-            self.assertIn(level.upper(), log_output)
+-
+-    def test_colored_output(self):
+-        self.logger.info("Test colored output")
+-        log_output = self.log_capture.getvalue()
+-
+-        self.assertIn(Fore.GREEN, log_output)
+-        self.assertIn(Style.RESET_ALL, log_output)
+-
+-    def test_custom_formatter(self):
+-        formatter = ColoredFormatter(
+-            "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
+-        )
+-        formatted_record = formatter.format(
+-            logging.LogRecord(
+-                name="test_logger",
+-                level=logging.INFO,
+-                pathname="",
+-                lineno=0,
+-                msg="Test message",
+-                args=(),
+-                exc_info=None,
+-            )
+-        )
+-
+-        self.assertIn(Fore.GREEN, formatted_record)
+-        self.assertIn(Style.RESET_ALL, formatted_record)
+-        self.assertIn("INFO", formatted_record)
+-        self.assertIn("test_logger", formatted_record)
+-        self.assertIn("Test message", formatted_record)
+-
+-    def test_logger_name(self):
+-        self.assertEqual(self.logger.name, "test_logger")
+-
+-    def test_logger_level(self):
+-        self.assertEqual(self.logger.level, logging.INFO)
+-
+-    def test_custom_level(self):
+-        custom_level_logger = CustomLogger.get_logger(
+-            "custom_level_logger", level=logging.DEBUG
+-        )
+-        self.assertEqual(custom_level_logger.level, logging.DEBUG)
+-
+-    def test_no_propagate(self):
+-        self.assertFalse(self.logger.propagate)
+-
+-    def test_formatter_style(self):
+-        formatter = ColoredFormatter(
+-            "%(asctime)s - %(levelname)s - %(name)s - %(message)s", style="%"
+-        )
+-        self.assertEqual(formatter._style.__class__, logging.PercentStyle)
+-
+-        formatter = ColoredFormatter(
+-            "{asctime} - {levelname} - {name} - {message}", style="{"
+-        )
+-        self.assertEqual(formatter._style.__class__, logging.StrFormatStyle)
+-
+-        formatter = ColoredFormatter(
+-            "$asctime - $levelname - $name - $message", style="$"
+-        )
+-        self.assertEqual(formatter._style.__class__, logging.StringTemplateStyle)
+-
+-
+-if __name__ == "__main__":
+-    unittest.main()
+
+Changes in commit 5e22d2d12d75e6e3f4ee4bc56aefc4c2e1884ac2 (2024-09-08T22:00:44+09:30):
+diff --git a/src/colored_custom_logger/logger.py b/src/colored_custom_logger/logger.py
+index 5ae5f39..8bb5d52 100644
+--- a/src/colored_custom_logger/logger.py
++++ b/src/colored_custom_logger/logger.py
+@@ -106,7 +106,13 @@ class ColoredFormatter(logging.Formatter):
+ 
+ 
+ class CustomLogger(logging.Logger):
+-    _default_level = logging.DEBUG
++    """
++    A custom logger class that extends the standard logging.Logger.
++
++    This logger is configured with a colored formatter and console handler.
++    """
++
++    _default_level = logging.INFO  # Add this line at the beginning of the class
+ 
+     def __init__(self, name: str, level: int = None):
+         """
+
+Changes in commit 01f84668717c990ef6d51b790c4a7cb5fc684834 (2024-09-08T22:02:11+09:30):
+diff --git a/pyproject.toml b/pyproject.toml
+index ffee0b9..309964e 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
+ 
+ [project]
+ name = "colored_custom_logger"
+-version = "1.5.5"
++version = "1.5.6"
+ authors = [
+   { name = "Robin Collins", email = "robin@blackcat-it.com.au" },
+ ]
+diff --git a/setup.py b/setup.py
+index 31f0d79..c9d9eb7 100644
+--- a/setup.py
++++ b/setup.py
+@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
+ 
+ setup(
+     name="colored_custom_logger",
+-    version="1.5.5",
++    version="1.5.6",
+     packages=find_packages(where="src"),
+     package_dir={"": "src"},
+     project_urls={
+diff --git a/src/colored_custom_logger/logger.py b/src/colored_custom_logger/logger.py
+index 8bb5d52..2323717 100644
+--- a/src/colored_custom_logger/logger.py
++++ b/src/colored_custom_logger/logger.py
+@@ -4,7 +4,7 @@ logger.py - A module for setting up consistent, partially colorful logging acros
+ This module provides a CustomLogger class that can be used directly for logging with colorful date
+ and log level, while leaving the rest of the output in plain text.
+ 
+-Version: 1.5.5
++Version: 1.5.6
+ """
+ 
+ import logging
+

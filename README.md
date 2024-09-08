@@ -44,6 +44,7 @@ logger.info("ℹ️ Here's some info for you")
 logger.warning("⚠️ Uh-oh, this is a warning")
 logger.error("❌ Oops! We've got an error")
 logger.critical("🚨 MAYDAY! MAYDAY! This is critical!")
+
 ```
 
 And voilà! Your console will transform into this:
@@ -91,6 +92,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📜 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🏷️ Version
+
+The current version of 🌈 colored-custom-logger is 1.5.7.
 
 ## 🙏 Acknowledgements
 

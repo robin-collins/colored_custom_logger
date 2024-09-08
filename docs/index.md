@@ -1,5 +1,7 @@
 # Welcome to Colored Custom Logger
 
+Version: 1.5.7
+
 Colored Custom Logger is a Python module that extends the functionality of the built-in `logging` module to provide colorized log output. It's designed to make log messages more readable and distinguishable, especially when working with console output.
 
 ## Features

@@ -4,11 +4,12 @@ logger.py - A module for setting up consistent, partially colorful logging acros
 This module provides a CustomLogger class that can be used directly for logging with colorful date
 and log level, while leaving the rest of the output in plain text.
 
-Version: 1.5.6
+Version: 1.5.7
 """
 
 import logging
 import sys
+from typing import Dict
 
 from colorama import Fore, Style, init
 
@@ -112,7 +113,8 @@ class CustomLogger(logging.Logger):
     This logger is configured with a colored formatter and console handler.
     """
 
-    _default_level = logging.INFO  # Add this line at the beginning of the class
+    _default_level = logging.INFO
+    _instances: Dict[str, 'CustomLogger'] = {}
 
     def __init__(self, name: str, level: int = None):
         """
@@ -122,9 +124,9 @@ class CustomLogger(logging.Logger):
             name (str): The name of the logger.
             level (int, optional): The logging level. If None, uses the default level.
         """
-        level = level if level is not None else self._default_level
-        super().__init__(name, level)
+        super().__init__(name, level or self._default_level)
         self.setup_logger()
+        CustomLogger._instances[name] = self
 
     def setup_logger(self):
         """
@@ -172,7 +174,13 @@ class CustomLogger(logging.Logger):
         Returns:
             CustomLogger: A configured logger instance.
         """
-        return cls(name, level)
+        if name in cls._instances:
+            logger = cls._instances[name]
+            if level is not None:
+                logger.setLevel(level)
+        else:
+            logger = cls(name, level)
+        return logger
 
     @classmethod
     def set_default_level(cls, level):
@@ -183,6 +191,10 @@ class CustomLogger(logging.Logger):
             level: The logging level to set as default.
         """        
         cls._default_level = level
+        for logger in cls._instances.values():
+            logger.setLevel(level)
         cls_logger = cls.get_logger(__name__)
         cls_logger.info("Default logging level set to %s", 
                         logging.getLevelName(level) if isinstance(level, int) else level)
+
+logger = CustomLogger.get_logger(__name__)
