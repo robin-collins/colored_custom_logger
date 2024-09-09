@@ -1,37 +1,31 @@
 """
-version_sync.py
+sync_versions.py
 
 This script synchronizes the version numbers in setup.py and pyproject.toml
-with the version specified in src/colored_custom_logger/logger.py.
+with the version specified in src/colored_custom_logger/__init__.py.
 
 Version: 1.0.0
 """
 
-import logging
+import os
 import re
 import sys
 
-# Set up logging
-logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-logger = logging.getLogger(__name__)
+# Import colored_custom_logger from src
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import src.colored_custom_logger as colored_custom_logger
+
+from colored_custom_logger import CustomLogger
+
+logger = CustomLogger.get_logger(__name__, level="DEBUG")
 
 
 def read_version_from_logger():
-    """Read the version from src/colored_custom_logger/logger.py."""
+    """Read the version from src/colored_custom_logger/__init__.py."""
     try:
-        with open("src/colored_custom_logger/logger.py", "r", encoding="utf-8") as f:
-            content = f.read()
-            match = re.search(r"Version:\s*(\d+\.\d+\.\d+)", content)
-            if match:
-                return match.group(1)
-            else:
-                logger.error("Version not found in logger.py")
-                return None
-    except FileNotFoundError:
-        logger.error("logger.py not found in src/colored_custom_logger/")
-        return None
-    except IOError as e:
-        logger.error(f"Error reading logger.py: {e}")
+        return colored_custom_logger.__version__
+    except AttributeError:
+        logger.error("__version__ attribute not found in src/colored_custom_logger.")
         return None
 
 
@@ -50,13 +44,13 @@ def update_setup_py(version):
             with open("setup.py", "w", encoding="utf-8") as f:
                 f.write(updated_content)
 
-            logger.info(f"Updated version in setup.py to {version}")
+            logger.info("Updated version in setup.py to %s", version)
         else:
             logger.error("Version pattern not found in setup.py")
     except FileNotFoundError:
         logger.error("setup.py not found")
     except IOError as e:
-        logger.error(f"Error updating setup.py: {e}")
+        logger.error("Error updating setup.py: %s", e)
 
 
 def update_pyproject_toml(version):
@@ -74,13 +68,13 @@ def update_pyproject_toml(version):
             with open("pyproject.toml", "w", encoding="utf-8") as f:
                 f.write(updated_content)
 
-            logger.info(f"Updated version in pyproject.toml to {version}")
+            logger.info("Updated version in pyproject.toml to %s", version)
         else:
             logger.error("Version pattern not found in pyproject.toml")
     except FileNotFoundError:
         logger.error("pyproject.toml not found")
     except IOError as e:
-        logger.error(f"Error updating pyproject.toml: {e}")
+        logger.error("Error updating pyproject.toml: %s", e)
 
 
 def main():

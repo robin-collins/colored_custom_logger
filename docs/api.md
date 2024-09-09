@@ -2,7 +2,7 @@
 
 This document provides a detailed reference for all public classes, methods, and attributes in the `colored_custom_logger` module.
 
-Version: 1.5.7
+Version: 1.6.0
 
 ## Table of Contents
 

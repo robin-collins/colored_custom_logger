@@ -95,7 +95,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🏷️ Version
 
-The current version of 🌈 colored-custom-logger is 1.5.7.
+The current version of 🌈 colored-custom-logger is 1.6.0.
 
 ## 🙏 Acknowledgements
 
